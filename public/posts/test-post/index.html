@@ -9,8 +9,10 @@
 <meta name="keywords" content="">
 <meta name="description" content="테스트 입니다. 블로그를 옮겼습니다. 기존 블로그는 더 이상 사용하지 않습니다.
 지금 사용중인 theme은 KaTeX 지원을 한다고 들었습니다.
-해보니까 안 돼서 직접 넣었습니다.
-$$ \sin x = \sum _{n=0}^{\infty} \frac{(-1)^n x^{2n&#43;1}}{(2n&#43;1)!} $$ 잘 되네요.
+해보니까 안 돼서 직접 넣었습니다&hellip;
+$$ \sin x = \sum _{n=0}^{\infty} \frac{(-1)^n x^{2n&#43;1}}{(2n&#43;1)!} $$
+등비수열 $ a_{n} = ar^{n-1} $의 합은 어쩌구
+잘 되네요.
 Code block과 Syntax highlighting 테스트
 1 2 3 4 5 6 7 8 9 10 fn miller_robin(n: u64, a: u64) -&gt; bool { if a % n == 0 { return true; } let mut k = n - 1; loop { let temp = fexp(a as u128, k as u128, n as u128) as u64; if temp == n - 1 { return true; } if k &amp; 1 == 1 { return temp == 1 || temp == n-1; } k &gt;&gt;= 1; } } 만족스럽습니다.">
 <meta name="author" content="Aerae">
@@ -63,9 +65,28 @@ Code block과 Syntax highlighting 테스트
 </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
 
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+body {
+	font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+</style>
 
 
   
@@ -73,8 +94,10 @@ Code block과 Syntax highlighting 테스트
 <meta property="og:title" content="Test Post" />
 <meta property="og:description" content="테스트 입니다. 블로그를 옮겼습니다. 기존 블로그는 더 이상 사용하지 않습니다.
 지금 사용중인 theme은 KaTeX 지원을 한다고 들었습니다.
-해보니까 안 돼서 직접 넣었습니다.
-$$ \sin x = \sum _{n=0}^{\infty} \frac{(-1)^n x^{2n&#43;1}}{(2n&#43;1)!} $$ 잘 되네요.
+해보니까 안 돼서 직접 넣었습니다&hellip;
+$$ \sin x = \sum _{n=0}^{\infty} \frac{(-1)^n x^{2n&#43;1}}{(2n&#43;1)!} $$
+등비수열 $ a_{n} = ar^{n-1} $의 합은 어쩌구
+잘 되네요.
 Code block과 Syntax highlighting 테스트
 1 2 3 4 5 6 7 8 9 10 fn miller_robin(n: u64, a: u64) -&gt; bool { if a % n == 0 { return true; } let mut k = n - 1; loop { let temp = fexp(a as u128, k as u128, n as u128) as u64; if temp == n - 1 { return true; } if k &amp; 1 == 1 { return temp == 1 || temp == n-1; } k &gt;&gt;= 1; } } 만족스럽습니다." />
 <meta property="og:type" content="article" />
@@ -89,8 +112,10 @@ Code block과 Syntax highlighting 테스트
 <meta name="twitter:title" content="Test Post"/>
 <meta name="twitter:description" content="테스트 입니다. 블로그를 옮겼습니다. 기존 블로그는 더 이상 사용하지 않습니다.
 지금 사용중인 theme은 KaTeX 지원을 한다고 들었습니다.
-해보니까 안 돼서 직접 넣었습니다.
-$$ \sin x = \sum _{n=0}^{\infty} \frac{(-1)^n x^{2n&#43;1}}{(2n&#43;1)!} $$ 잘 되네요.
+해보니까 안 돼서 직접 넣었습니다&hellip;
+$$ \sin x = \sum _{n=0}^{\infty} \frac{(-1)^n x^{2n&#43;1}}{(2n&#43;1)!} $$
+등비수열 $ a_{n} = ar^{n-1} $의 합은 어쩌구
+잘 되네요.
 Code block과 Syntax highlighting 테스트
 1 2 3 4 5 6 7 8 9 10 fn miller_robin(n: u64, a: u64) -&gt; bool { if a % n == 0 { return true; } let mut k = n - 1; loop { let temp = fexp(a as u128, k as u128, n as u128) as u64; if temp == n - 1 { return true; } if k &amp; 1 == 1 { return temp == 1 || temp == n-1; } k &gt;&gt;= 1; } } 만족스럽습니다."/>
 
@@ -121,12 +146,12 @@ Code block과 Syntax highlighting 테스트
   "@type": "BlogPosting",
   "headline": "Test Post",
   "name": "Test Post",
-  "description": "테스트 입니다. 블로그를 옮겼습니다. 기존 블로그는 더 이상 사용하지 않습니다.\n지금 사용중인 theme은 KaTeX 지원을 한다고 들었습니다.\n해보니까 안 돼서 직접 넣었습니다.\n$$ \\sin x = \\sum _{n=0}^{\\infty} \\frac{(-1)^n x^{2n+1}}{(2n+1)!} $$ 잘 되네요.\nCode block과 Syntax highlighting 테스트\n1 2 3 4 5 6 7 8 9 10 fn miller_robin(n: u64, a: u64) -\u0026gt; bool { if a % n == 0 { return true; } let mut k = n - 1; loop { let temp = fexp(a as u128, k as u128, n as u128) as u64; if temp == n - 1 { return true; } if k \u0026amp; 1 == 1 { return temp == 1 || temp == n-1; } k \u0026gt;\u0026gt;= 1; } } 만족스럽습니다.",
+  "description": "테스트 입니다. 블로그를 옮겼습니다. 기존 블로그는 더 이상 사용하지 않습니다.\n지금 사용중인 theme은 KaTeX 지원을 한다고 들었습니다.\n해보니까 안 돼서 직접 넣었습니다\u0026hellip;\n$$ \\sin x = \\sum _{n=0}^{\\infty} \\frac{(-1)^n x^{2n+1}}{(2n+1)!} $$\n등비수열 $ a_{n} = ar^{n-1} $의 합은 어쩌구\n잘 되네요.\nCode block과 Syntax highlighting 테스트\n1 2 3 4 5 6 7 8 9 10 fn miller_robin(n: u64, a: u64) -\u0026gt; bool { if a % n == 0 { return true; } let mut k = n - 1; loop { let temp = fexp(a as u128, k as u128, n as u128) as u64; if temp == n - 1 { return true; } if k \u0026amp; 1 == 1 { return temp == 1 || temp == n-1; } k \u0026gt;\u0026gt;= 1; } } 만족스럽습니다.",
   "keywords": [
     
   ],
-  "articleBody": "테스트 입니다. 블로그를 옮겼습니다. 기존 블로그는 더 이상 사용하지 않습니다.\n지금 사용중인 theme은 KaTeX 지원을 한다고 들었습니다.\n해보니까 안 돼서 직접 넣었습니다.\n$$ \\sin x = \\sum _{n=0}^{\\infty} \\frac{(-1)^n x^{2n+1}}{(2n+1)!} $$ 잘 되네요.\nCode block과 Syntax highlighting 테스트\n1 2 3 4 5 6 7 8 9 10 fn miller_robin(n: u64, a: u64) -\u003e bool { if a % n == 0 { return true; } let mut k = n - 1; loop { let temp = fexp(a as u128, k as u128, n as u128) as u64; if temp == n - 1 { return true; } if k \u0026 1 == 1 { return temp == 1 || temp == n-1; } k \u003e\u003e= 1; } } 만족스럽습니다.\n이제 글 작성에 필요한 것들은 잘 세팅이 되었네요.\n앞으로 유익하고 도움이 되는 글들로 돌아오겠습니다. 감사합니다.\n",
-  "wordCount" : "136",
+  "articleBody": "테스트 입니다. 블로그를 옮겼습니다. 기존 블로그는 더 이상 사용하지 않습니다.\n지금 사용중인 theme은 KaTeX 지원을 한다고 들었습니다.\n해보니까 안 돼서 직접 넣었습니다…\n$$ \\sin x = \\sum _{n=0}^{\\infty} \\frac{(-1)^n x^{2n+1}}{(2n+1)!} $$\n등비수열 $ a_{n} = ar^{n-1} $의 합은 어쩌구\n잘 되네요.\nCode block과 Syntax highlighting 테스트\n1 2 3 4 5 6 7 8 9 10 fn miller_robin(n: u64, a: u64) -\u003e bool { if a % n == 0 { return true; } let mut k = n - 1; loop { let temp = fexp(a as u128, k as u128, n as u128) as u64; if temp == n - 1 { return true; } if k \u0026 1 == 1 { return temp == 1 || temp == n-1; } k \u003e\u003e= 1; } } 만족스럽습니다.\n이제 글 작성에 필요한 것들은 잘 세팅이 되었네요. 앞으로 유익하고 도움이 되는 글들로 돌아오겠습니다. 감사합니다.\n",
+  "wordCount" : "144",
   "inLanguage": "en",
   "image": "http://localhost:1313/images/papermod-cover.png","datePublished": "2024-06-28T17:30:24+09:00",
   "dateModified": "2024-06-28T17:30:24+09:00",
@@ -235,12 +260,13 @@ Code block과 Syntax highlighting 테스트
 </div>
 
   <div class="post-content"><h2 id="테스트-입니다">테스트 입니다.<a hidden class="anchor" aria-hidden="true" href="#테스트-입니다">#</a></h2>
-<p>블로그를 옮겼습니다. 기존 <a href="https://velog.io/@aerae">블로그</a>는 더 이상 사용하지 않습니다.</p>
-<p>지금 사용중인 theme은 KaTeX 지원을 한다고 들었습니다.</p>
-<p>해보니까 안 돼서 직접 넣었습니다.</p>
+<p>블로그를 옮겼습니다. <strong>기존 <a href="https://velog.io/@aerae">블로그</a>는 더 이상 사용하지 않습니다.</strong></p>
+<p>지금 사용중인 theme은 KaTeX 지원을 한다고 들었습니다.<br>
+해보니까 안 돼서 직접 넣었습니다&hellip;</p>
 <p>$$
 \sin x = \sum _{n=0}^{\infty} \frac{(-1)^n x^{2n+1}}{(2n+1)!}
-$$
+$$</p>
+<p>등비수열 $ a_{n} = ar^{n-1} $의 합은 어쩌구<br>
 잘 되네요.</p>
 <p>Code block과 Syntax highlighting 테스트</p>
 <div class="highlight"><div class="chroma">
@@ -270,8 +296,8 @@ $$
 </span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>만족스럽습니다.</p>
-<p>이제 글 작성에 필요한 것들은 잘 세팅이 되었네요.</p>
-<p>앞으로 유익하고 도움이 되는 글들로 돌아오겠습니다. 감사합니다.</p>
+<p>이제 글 작성에 필요한 것들은 잘 세팅이 되었네요. <br>
+앞으로 유익하고 도움이 되는 글들로 돌아오겠습니다. 감사합니다.</p>
 
 
   </div>
@@ -279,6 +305,13 @@ $$
   <footer class="post-footer">
     <ul class="post-tags">
     </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/fast-geometric-sequence-sum/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>등비수열의 합을 빠르게 구하기</span>
+  </a>
+</nav>
 
   </footer>
 </article>

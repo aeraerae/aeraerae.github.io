@@ -59,9 +59,28 @@
 </noscript>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"
-    onload="renderMathInElement(document.body);"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
 
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+body {
+	font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+</style>
 
 
   
@@ -161,8 +180,12 @@
   <div class="entry-content">
     <p>테스트 입니다. 블로그를 옮겼습니다. 기존 블로그는 더 이상 사용하지 않습니다.
 지금 사용중인 theme은 KaTeX 지원을 한다고 들었습니다.
-해보니까 안 돼서 직접 넣었습니다.
-$$ \sin x = \sum _{n=0}^{\infty} \frac{(-1)^n x^{2n&#43;1}}{(2n&#43;1)!} $$ 잘 되네요.</p>
+해보니까 안 돼서 직접 넣었습니다…
+$$ \sin x = \sum _{n=0}^{\infty} \frac{(-1)^n x^{2n&#43;1}}{(2n&#43;1)!} $$
+등비수열 $ a_{n} = ar^{n-1} $의 합은 어쩌구
+잘 되네요.
+Code block과 Syntax highlighting 테스트
+1 2 3 4 5 6 7 8 9 10 fn miller_robin(n: u64, a: u64) -&gt; bool { if a % n == 0 { return true; } let mut k = n - 1; loop { let temp = fexp(a as u128, k as u128, n as u128) as u64; if temp == n - 1 { return true; } if k &amp; 1 == 1 { return temp == 1 || temp == n-1; } k &gt;&gt;= 1; } } 만족스럽습니다....</p>
   </div>
   <footer class="entry-footer"><span title='2024-06-28 17:30:24 +0900 KST'>June 28, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Aerae</footer>
   <a class="entry-link" aria-label="post link to Test Post" href="http://localhost:1313/posts/test-post/"></a>
