@@ -8,13 +8,28 @@
     <loc>http://localhost:1313/categories/</loc>
     <lastmod>2024-07-04T17:56:40+09:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/dac/</loc>
+    <lastmod>2024-07-04T17:56:40+09:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2024-07-04T17:56:40+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ps/</loc>
+    <lastmod>2024-07-04T17:56:40+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/</loc>
     <lastmod>2024-07-04T17:56:40+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/fast-geometric-sequence-sum/</loc>
     <lastmod>2024-07-04T17:56:40+09:00</lastmod>
   </url><url>
+    <loc>http://localhost:1313/tags/%EC%88%98%ED%95%99/</loc>
+    <lastmod>2024-07-04T17:56:40+09:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98/</loc>
+    <lastmod>2024-07-04T17:56:40+09:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/%EC%A0%95%EC%88%98%EB%A1%A0/</loc>
     <lastmod>2024-07-04T17:56:40+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/test-post/</loc>
@@ -24,7 +39,5 @@
     <lastmod>2024-06-28T17:30:24+09:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/archives/</loc>
-  </url><url>
-    <loc>http://localhost:1313/tags/</loc>
   </url>
 </urlset>
