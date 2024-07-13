@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Ps on aerae</title>
-    <link>http://localhost:1313/tags/ps/</link>
-    <description>Recent content in Ps on aerae</description>
+    <title>테스트 on aerae</title>
+    <link>http://localhost:1313/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/</link>
+    <description>Recent content in 테스트 on aerae</description>
     <image>
       <title>aerae</title>
       <url>http://localhost:1313/images/papermod-cover.png</url>
@@ -11,19 +11,8 @@
     </image>
     <generator>Hugo -- 0.128.0</generator>
     <language>kr</language>
-    <lastBuildDate>Thu, 04 Jul 2024 17:56:40 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/ps/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>등비수열의 합을 빠르게 구하기</title>
-      <link>http://localhost:1313/posts/fast-geometric-sequence-sum/</link>
-      <pubDate>Thu, 04 Jul 2024 17:56:40 +0900</pubDate>
-      <guid>http://localhost:1313/posts/fast-geometric-sequence-sum/</guid>
-      <description>Intro 등비수열 $a_{n} = ar^{n-1}$의 합은 $$ S_n = \begin{cases} an &amp;amp;\text{if } r=1\ \newline \frac{a(r^n - 1)}{r-1} &amp;amp;\text{otherwise} \end{cases} $$ 로 나타낼 수 있습니다.
-$r=1$일 때 $S_n$이 다른 이유는, $\frac{a(r^n - 1)}{r-1}$의 분모가 $0$이 되기 때문입니다.
-이때는, $1$항부터 $n$항까지가 모두 $a$로 같으니, 간단하게 $an$으로 나타낼 수 있습니다.
-$n$이 커지면 커질 수록 $S_n$은 (말 그대로) 기하급수적으로 커지기 때문에, 일반적으로 PS에서는 $S_n$을 $m$으로 나눈 나머지를 구하도록 합니다.
-따라서, 이 글에서는 등비수열의 합 $S_n\ \textrm{mod}\ m$을 빠르게 구할 방법을 소개하겠습니다.</description>
-    </item>
+    <lastBuildDate>Fri, 28 Jun 2024 17:30:24 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%ED%85%8C%EC%8A%A4%ED%8A%B8/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test Post</title>
       <link>http://localhost:1313/posts/test-post/</link>

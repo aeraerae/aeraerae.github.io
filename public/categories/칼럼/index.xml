@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>칼럼 on aerae</title>
+    <link>http://localhost:1313/categories/%EC%B9%BC%EB%9F%BC/</link>
+    <description>Recent content in 칼럼 on aerae</description>
+    <image>
+      <title>aerae</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.128.0</generator>
+    <language>kr</language>
+    <lastBuildDate>Sat, 13 Jul 2024 23:49:56 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%EC%B9%BC%EB%9F%BC/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>문해력 이슈 #1 - &#34;팝콘 브레인&#34;</title>
+      <link>http://localhost:1313/posts/popcorn-brain/</link>
+      <pubDate>Sat, 13 Jul 2024 23:49:56 +0900</pubDate>
+      <guid>http://localhost:1313/posts/popcorn-brain/</guid>
+      <description>2023/7/16 일
+우리의 뇌는 자극 즉, 전기신호에 반응하는 함수적인 기능을 수행한다. 그러나 강한 자극을 여러 번 받는다면, 우리의 뇌는 점점 그 자극에 둔감해지고, 더 큰 자극을 추구하게 된다. 요즘은 이른바 &amp;lsquo;숏폼&amp;rsquo; 문화가 유행이다. 짦은 동영상 공유 플랫폼인 &amp;lsquo;틱톡&amp;rsquo;의 성공 이후, 많은 플랫폼들이 1분 남짓 짧은 세로 영상을 공유하는 문화를 적극 밀어주는 추세다. 유튜브의 &amp;lsquo;쇼츠&amp;rsquo;, 인스타그램의 &amp;lsquo;릴스&amp;rsquo;, 심지어 뉴스 플랫폼인 네이버 뉴스도 숏폼을 개설하였다.
+바쁜 현대사회에서는 누구나 정보를 간략하고 밀도 있게 습득하는 것을 선호한다.</description>
+    </item>
+  </channel>
+</rss>

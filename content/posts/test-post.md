@@ -3,6 +3,7 @@ title = 'Test Post'
 date = 2024-06-28T17:30:24+09:00
 draft = false
 categories = ["일상"]
+tags = ["테스트"]
 +++
 
 ## 테스트 입니다.
