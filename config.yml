@@ -1,5 +1,5 @@
 baseURL: "https://aeraerae.github.io/"
-languageCode: "kr"
+languageCode: "ko"
 title: aerae
 paginate: 5
 theme: PaperMod
