@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>BOJ 2457 - 공주님의 정원 | aerae</title>
+<meta name="keywords" content="ps, 그리디, greedy, 정렬, sortings, 백준, boj, 5647">
+<meta name="description" content="문제 링크
+(2024/9/9 기준) Gold III
+문제 읽기 꽃이 $N$종류 주어집니다. 각각의 꽃은 피는 날과 지는 날이 각각 $MM\ DD$꼴로 주어지고, 최소한의 종류의 꽃으로 $3$월 $1$일부터 $11$월 $31$일까지 매일 적어도 한 종류의 꽃이 피어있도록 배치해봅시다. 단, $d$일에 꽃이 지는 경우, $d$일에는 꽃이 피어있지 않았음에 유의합시다.
+예시 4 1 1 5 31 1 1 6 30 5 15 8 31 6 10 12 10 예제 1입니다. $4$종류의 꽃이 주어졌고, 이 중 $1$월 $1$일부터 $6$월 $30$일까지 피는 꽃과, $6$월 $10$일부터 $12$월 $10$일에 지는 꽃 $2$개를 선택하여 조건을 만족시킬 수 있습니다.">
+<meta name="author" content="Aerae">
+<link rel="canonical" href="http://localhost:1313/posts/boj-2457/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/boj-2457/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+body {
+	font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+h1 {
+	font-weight: 900;
+}
+
+h2 {
+	font-weight: 800;
+}
+
+</style>
+
+
+  
+
+<meta property="og:title" content="BOJ 2457 - 공주님의 정원" />
+<meta property="og:description" content="문제 링크
+(2024/9/9 기준) Gold III
+문제 읽기 꽃이 $N$종류 주어집니다. 각각의 꽃은 피는 날과 지는 날이 각각 $MM\ DD$꼴로 주어지고, 최소한의 종류의 꽃으로 $3$월 $1$일부터 $11$월 $31$일까지 매일 적어도 한 종류의 꽃이 피어있도록 배치해봅시다. 단, $d$일에 꽃이 지는 경우, $d$일에는 꽃이 피어있지 않았음에 유의합시다.
+예시 4 1 1 5 31 1 1 6 30 5 15 8 31 6 10 12 10 예제 1입니다. $4$종류의 꽃이 주어졌고, 이 중 $1$월 $1$일부터 $6$월 $30$일까지 피는 꽃과, $6$월 $10$일부터 $12$월 $10$일에 지는 꽃 $2$개를 선택하여 조건을 만족시킬 수 있습니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/boj-2457/" />
+<meta property="og:image" content="http://localhost:1313/images/papermod-cover.png" />
+<meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-09-09T14:41:51+09:00" />
+<meta property="article:modified_time" content="2024-09-09T14:41:51+09:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/images/papermod-cover.png" />
+<meta name="twitter:title" content="BOJ 2457 - 공주님의 정원"/>
+<meta name="twitter:description" content="문제 링크
+(2024/9/9 기준) Gold III
+문제 읽기 꽃이 $N$종류 주어집니다. 각각의 꽃은 피는 날과 지는 날이 각각 $MM\ DD$꼴로 주어지고, 최소한의 종류의 꽃으로 $3$월 $1$일부터 $11$월 $31$일까지 매일 적어도 한 종류의 꽃이 피어있도록 배치해봅시다. 단, $d$일에 꽃이 지는 경우, $d$일에는 꽃이 피어있지 않았음에 유의합시다.
+예시 4 1 1 5 31 1 1 6 30 5 15 8 31 6 10 12 10 예제 1입니다. $4$종류의 꽃이 주어졌고, 이 중 $1$월 $1$일부터 $6$월 $30$일까지 피는 꽃과, $6$월 $10$일부터 $12$월 $10$일에 지는 꽃 $2$개를 선택하여 조건을 만족시킬 수 있습니다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "BOJ 2457 - 공주님의 정원",
+      "item": "http://localhost:1313/posts/boj-2457/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "BOJ 2457 - 공주님의 정원",
+  "name": "BOJ 2457 - 공주님의 정원",
+  "description": "문제 링크\n(2024/9/9 기준) Gold III\n문제 읽기 꽃이 $N$종류 주어집니다. 각각의 꽃은 피는 날과 지는 날이 각각 $MM\\ DD$꼴로 주어지고, 최소한의 종류의 꽃으로 $3$월 $1$일부터 $11$월 $31$일까지 매일 적어도 한 종류의 꽃이 피어있도록 배치해봅시다. 단, $d$일에 꽃이 지는 경우, $d$일에는 꽃이 피어있지 않았음에 유의합시다.\n예시 4 1 1 5 31 1 1 6 30 5 15 8 31 6 10 12 10 예제 1입니다. $4$종류의 꽃이 주어졌고, 이 중 $1$월 $1$일부터 $6$월 $30$일까지 피는 꽃과, $6$월 $10$일부터 $12$월 $10$일에 지는 꽃 $2$개를 선택하여 조건을 만족시킬 수 있습니다.",
+  "keywords": [
+    "ps", "그리디", "greedy", "정렬", "sortings", "백준", "boj", "5647"
+  ],
+  "articleBody": "문제 링크\n(2024/9/9 기준) Gold III\n문제 읽기 꽃이 $N$종류 주어집니다. 각각의 꽃은 피는 날과 지는 날이 각각 $MM\\ DD$꼴로 주어지고, 최소한의 종류의 꽃으로 $3$월 $1$일부터 $11$월 $31$일까지 매일 적어도 한 종류의 꽃이 피어있도록 배치해봅시다. 단, $d$일에 꽃이 지는 경우, $d$일에는 꽃이 피어있지 않았음에 유의합시다.\n예시 4 1 1 5 31 1 1 6 30 5 15 8 31 6 10 12 10 예제 1입니다. $4$종류의 꽃이 주어졌고, 이 중 $1$월 $1$일부터 $6$월 $30$일까지 피는 꽃과, $6$월 $10$일부터 $12$월 $10$일에 지는 꽃 $2$개를 선택하여 조건을 만족시킬 수 있습니다.\n풀이 먼저, $MM\\ DD$꼴로 주어지는 입력을 편하게 다루기 위해, $MM\\ DD$가 그 해의 몇 번째 날인지로 바꿔줍시다. 예를 들어, $1\\ 1$은 $1$이 되고, $5\\ 31$은 $151$이 됩니다. 이는 각 월의 일 수를 더하여 얻을 수 있습니다. 편의를 위해 $i$번째 꽃의 피는 날을 $s_i$, 지는 날을 $e_i$라 합시다.\n임의의 날짜 $d$에 대해서, $d$일에 꽃이 피어있기 위해서는 $s_i \\leq d \u003c e_j$ (단, $1 \\leq i, j \\leq n$)를 만족해야 합니다.\n가장 간단하게, $n=1$인 상황을 가정해봅시다. $s_1 \\leq d \u003c e_1$을 만족한다면 $1$개의 꽃을 선택하여 조건을 만족시킬 수 있습니다.\n$n \u003e 1$일 경우, $s_i\u003ee_j$ (단, $i \\neq j$)를 만족한다면, 두 구간을 합칠 수 있습니다. 예를 들어, 구간 $[2, 5)$와 $[4, 8)$을 합쳐 구간 $[2, 8)$을 만들 수 있고, 이 구간을 합치는 연산에 대해서는 교환법칙과 결합법칙이 성립합니다.\n모든 구간을 합쳐보고, 문제 조건에서 요구하는 구간인 $[60, 334)$를 덮을 수 있는지 확인하면, 모든 꽃을 배치해도 문제 조건을 만족할 수 없는 경우를 걸러낼 수 있습니다.\n이어서, 최소한의 종류의 꽃으로 구간을 덮을 방법을 찾아봅시다.\n두 구간 $[s_1, e_1)$, $[s_2, e_2)$중 짧거나 같은 구간이 합쳤을 때 완전히 덮히는 경우를 생각해봅시다. 즉, $s_1 \\leq s_2$이고, $e_1 \\geq e_2$라면, 두 구간을 합쳐도 $[s_1, e_1)$입니다. 교환법칙과 결합법칙이 성립하므로, 적절히 구간을 합쳐서 최소 개수로 덮는 구간과 그 외의 구간들로 나눌 수 있고, 최소 개수로 덮는 구간에는 결국 구간끼리 완전히 포개지는 경우가 없어야 함을 통해 알 수 있습니다.\n우선, 시간순으로 펼쳐보기 위해 $(s_i, e_i)$를 정렬합시다. $d$는 첫 날인 $60$이 되고, $s_i \\leq d$이고 $d \u003c e_i$인 구간만을 선택할 수 있습니다. 만약, 임의의 $i$, $j$ (단, $1 \\leq i \u003c j \\leq n$)에 대하여 $e_i \\leq e_j$이므로, 구간 $[s_i, e_i)$는 전체 구간 $[60, e_j)$ 안에 포함돼서 겹칩니다. 따라서, $s_i \\leq d$를 만족하면서 $e_i$가 최대가 되는 구간을 그리디하게 고르는 것이 최적이 됩니다. 같은 방식으로, $d = e_i$로 바꾼 후 귀납적으로 문제를 해결할 수 있습니다.\n소스코드 (Rust) use std::{fmt::Write, io::{stdin, Read}, str::SplitWhitespace}; fn main() { let mut buf = String::new(); let mut out = String::new(); stdin().read_to_string(\u0026mut buf).unwrap(); let mut scan = Scanner::new(buf.split_whitespace()); //let tc = scan.next(); //for _ in 0..tc { solve(\u0026mut scan, \u0026mut out); //} println!(\"{out}\"); } // overflow, edge case, and 1 based index? fn solve\u003c'a\u003e(scan: \u0026mut Scanner\u003c'a, SplitWhitespace\u003c'a\u003e\u003e, out: \u0026mut String) { let n: usize = scan.next(); let mut a = Vec::with_capacity(n); for _ in 0..n { let sm: i32 = scan.next(); let sd: i32 = scan.next(); let em: i32 = scan.next(); let ed: i32 = scan.next(); a.push((get_day(sm, sd), get_day(em, ed))); } let mut s = get_day(3, 1); let mut e = 0; a.sort(); let mut flag = true; let mut c = 1; for i in 0..a.len() { if a[i].0 \u003c= s { if e \u003c a[i].1 { e = a[i].1; } } else { s = e; e = 0; c += 1; if s \u003c a[i].0 { flag = false; break; } if e \u003c a[i].1 { e = a[i].1; } } if e \u003e get_day(11, 30) { break; } } if e \u003c= get_day(11, 30) { flag = false; } writeln!(out, \"{}\", if flag { c } else { 0 }).ok(); } fn get_day(m: i32, d: i32) -\u003e i32 { let mut ret = 31 * (m - 1); for i in 1..m { if i == 2 { ret -= 3; } if i == 4 || i == 6 || i == 9 || i == 11 { ret -= 1; } } ret + d } struct Scanner\u003c'a, I: Iterator\u003cItem = \u0026'a str\u003e\u003e { iter: I, } impl\u003c'a, I: Iterator\u003cItem = \u0026'a str\u003e\u003e Scanner\u003c'a, I\u003e { fn new(from: I) -\u003e Self { Self { iter: from } } fn next\u003cT: std::str::FromStr\u003e(\u0026mut self) -\u003e T { self.iter.next().unwrap().parse().ok().unwrap() } } get_day()함수를 통하여 $MM\\ DD$꼴의 입력을 $d$ 꼴로 바꿔주었고, 각 구간들을 정렬한 후, $s_i \u003c d \u003c e_i$를 만족하며 $e_i$가 최대가 되는 $i$를 찾은 후, $d$를 $e_i$로 업데이트 하며 합친 구간의 개수들을 더해주었습니다.\n후기 전형적인 그리디 유형이라 어느정도 직관이 있으신 분들은 쉽게 풀었을 수도 있는 문제입니다. 부등호를 포함하여 예외처리가 조금 어려웠지만 재밌었습니다.\n",
+  "wordCount" : "731",
+  "inLanguage": "en",
+  "image": "http://localhost:1313/images/papermod-cover.png","datePublished": "2024-09-09T14:41:51+09:00",
+  "dateModified": "2024-09-09T14:41:51+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "Aerae"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/boj-2457/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "aerae",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="aerae (Alt + H)">aerae</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="게시글">
+                    <span>게시글</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="카테고리">
+                    <span>카테고리</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="태그">
+                    <span>태그</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      BOJ 2457 - 공주님의 정원
+    </h1>
+    <div class="post-meta"><span title='2024-09-09 14:41:51 +0900 KST'>September 9, 2024</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Aerae&nbsp;|&nbsp;<a href="https://github.com/aeraerae/aeraerae.github.io/tree/main/content/posts/boj-2457.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%eb%ac%b8%ec%a0%9c-%ec%9d%bd%ea%b8%b0" aria-label="문제 읽기">문제 읽기</a><ul>
+                        
+                <li>
+                    <a href="#%ec%98%88%ec%8b%9c" aria-label="예시">예시</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%ed%92%80%ec%9d%b4" aria-label="풀이">풀이</a></li>
+                <li>
+                    <a href="#%ec%86%8c%ec%8a%a4%ec%bd%94%eb%93%9c-rust" aria-label="소스코드 (Rust)">소스코드 (Rust)</a></li>
+                <li>
+                    <a href="#%ed%9b%84%ea%b8%b0" aria-label="후기">후기</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><a href="https://www.acmicpc.net/problem/2457">문제 링크</a><br>
+(2024/9/9 기준) <span style="color: #ec9a00;">Gold III</span></p>
+<h1 id="문제-읽기">문제 읽기<a hidden class="anchor" aria-hidden="true" href="#문제-읽기">#</a></h1>
+<p>꽃이 $N$종류 주어집니다. 각각의 꽃은 피는 날과 지는 날이 각각 $MM\ DD$꼴로 주어지고, 최소한의 종류의 꽃으로 $3$월 $1$일부터 $11$월 $31$일까지 매일 적어도 한 종류의 꽃이 피어있도록 배치해봅시다. 단, $d$일에 꽃이 지는 경우, $d$일에는 꽃이 피어있지 않았음에 유의합시다.</p>
+<h2 id="예시">예시<a hidden class="anchor" aria-hidden="true" href="#예시">#</a></h2>
+<pre tabindex="0"><code>4
+1 1 5 31
+1 1 6 30
+5 15 8 31
+6 10 12 10
+</code></pre><p><code>예제 1</code>입니다. $4$종류의 꽃이 주어졌고, 이 중 $1$월 $1$일부터 $6$월 $30$일까지 피는 꽃과, $6$월 $10$일부터 $12$월 $10$일에 지는 꽃 $2$개를 선택하여 조건을 만족시킬 수 있습니다.</p>
+<h1 id="풀이">풀이<a hidden class="anchor" aria-hidden="true" href="#풀이">#</a></h1>
+<p>먼저, $MM\ DD$꼴로 주어지는 입력을 편하게 다루기 위해, $MM\ DD$가 그 해의 몇 번째 날인지로 바꿔줍시다. 예를 들어, $1\ 1$은 $1$이 되고, $5\ 31$은 $151$이 됩니다. 이는 각 월의 일 수를 더하여 얻을 수 있습니다. 편의를 위해 $i$번째 꽃의 피는 날을 $s_i$, 지는 날을 $e_i$라 합시다.</p>
+<p>임의의 날짜 $d$에 대해서, $d$일에 꽃이 피어있기 위해서는 $s_i \leq d &lt; e_j$ (단, $1 \leq i, j \leq n$)를 만족해야 합니다.</p>
+<p>가장 간단하게, $n=1$인 상황을 가정해봅시다. $s_1 \leq d &lt; e_1$을 만족한다면 $1$개의 꽃을 선택하여 조건을 만족시킬 수 있습니다.</p>
+<p>$n &gt; 1$일 경우, $s_i&gt;e_j$ (단, $i \neq j$)를 만족한다면, 두 구간을 <strong>합칠</strong> 수 있습니다. 예를 들어, 구간 $[2, 5)$와 $[4, 8)$을 합쳐 구간 $[2, 8)$을 만들 수 있고, 이 구간을 합치는 연산에 대해서는 <strong>교환법칙</strong>과 <strong>결합법칙</strong>이 성립합니다.</p>
+<p>모든 구간을 합쳐보고, 문제 조건에서 요구하는 구간인 $[60, 334)$를 덮을 수 있는지 확인하면, 모든 꽃을 배치해도 문제 조건을 만족할 수 <strong>없는</strong> 경우를 걸러낼 수 있습니다.</p>
+<p>이어서, 최소한의 종류의 꽃으로 구간을 덮을 방법을 찾아봅시다.</p>
+<p>두 구간 $[s_1, e_1)$, $[s_2, e_2)$중 짧거나 같은 구간이 합쳤을 때 완전히 덮히는 경우를 생각해봅시다. 즉, $s_1 \leq s_2$이고, $e_1 \geq e_2$라면, 두 구간을 합쳐도 $[s_1, e_1)$입니다. 교환법칙과 결합법칙이 성립하므로, 적절히 구간을 합쳐서 최소 개수로 덮는 구간과 그 외의 구간들로 나눌 수 있고, 최소 개수로 덮는 구간에는 결국 구간끼리 완전히 포개지는 경우가 없어야 함을 통해 알 수 있습니다.</p>
+<p>우선, 시간순으로 펼쳐보기 위해 $(s_i, e_i)$를 정렬합시다. $d$는 첫 날인 $60$이 되고, $s_i \leq d$이고 $d &lt; e_i$인 구간만을 선택할 수 있습니다. 만약, 임의의 $i$, $j$ (단, $1 \leq i &lt; j \leq n$)에 대하여 $e_i \leq e_j$이므로, 구간 $[s_i, e_i)$는 전체 구간 $[60, e_j)$ 안에 포함돼서 겹칩니다. 따라서, $s_i \leq d$를 만족하면서 $e_i$가 최대가 되는 구간을 그리디하게 고르는 것이 최적이 됩니다. 같은 방식으로, $d = e_i$로 바꾼 후 귀납적으로 문제를 해결할 수 있습니다.</p>
+<h1 id="소스코드-rust">소스코드 (Rust)<a hidden class="anchor" aria-hidden="true" href="#소스코드-rust">#</a></h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="p">{</span><span class="n">fmt</span>::<span class="n">Write</span><span class="p">,</span><span class="w"> </span><span class="n">io</span>::<span class="p">{</span><span class="n">stdin</span><span class="p">,</span><span class="w"> </span><span class="n">Read</span><span class="p">},</span><span class="w"> </span><span class="kt">str</span>::<span class="n">SplitWhitespace</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">stdin</span><span class="p">().</span><span class="n">read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">buf</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Scanner</span>::<span class="n">new</span><span class="p">(</span><span class="n">buf</span><span class="p">.</span><span class="n">split_whitespace</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//let tc = scan.next();
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="c1">//for _ in 0..tc {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="n">solve</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">scan</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">out</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//}
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;</span><span class="si">{out}</span><span class="s">&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// overflow, edge case, and 1 based index?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">fn</span> <span class="nf">solve</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="o">&gt;</span><span class="p">(</span><span class="n">scan</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">Scanner</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="p">,</span><span class="w"> </span><span class="n">SplitWhitespace</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">out</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">String</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">n</span>: <span class="kt">usize</span> <span class="o">=</span><span class="w"> </span><span class="n">scan</span><span class="p">.</span><span class="n">next</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Vec</span>::<span class="n">with_capacity</span><span class="p">(</span><span class="n">n</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">n</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">sm</span>: <span class="kt">i32</span> <span class="o">=</span><span class="w"> </span><span class="n">scan</span><span class="p">.</span><span class="n">next</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">sd</span>: <span class="kt">i32</span> <span class="o">=</span><span class="w"> </span><span class="n">scan</span><span class="p">.</span><span class="n">next</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">em</span>: <span class="kt">i32</span> <span class="o">=</span><span class="w"> </span><span class="n">scan</span><span class="p">.</span><span class="n">next</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">ed</span>: <span class="kt">i32</span> <span class="o">=</span><span class="w"> </span><span class="n">scan</span><span class="p">.</span><span class="n">next</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">a</span><span class="p">.</span><span class="n">push</span><span class="p">((</span><span class="n">get_day</span><span class="p">(</span><span class="n">sm</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="p">),</span><span class="w"> </span><span class="n">get_day</span><span class="p">(</span><span class="n">em</span><span class="p">,</span><span class="w"> </span><span class="n">ed</span><span class="p">)));</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">get_day</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">a</span><span class="p">.</span><span class="n">sort</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">a</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="mi">0</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">e</span><span class="p">;</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="n">c</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="mi">1</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">get_day</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">break</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">e</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">get_day</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">writeln!</span><span class="p">(</span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;{}&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">}).</span><span class="n">ok</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">get_day</span><span class="p">(</span><span class="n">m</span>: <span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="n">d</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">31</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">..</span><span class="n">m</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">11</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">d</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">struct</span> <span class="nc">Scanner</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="p">,</span><span class="w"> </span><span class="n">I</span>: <span class="nb">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="na">&#39;a</span><span class="w"> </span><span class="kt">str</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">iter</span>: <span class="nc">I</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">impl</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="p">,</span><span class="w"> </span><span class="n">I</span>: <span class="nb">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="na">&#39;a</span><span class="w"> </span><span class="kt">str</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">Scanner</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">from</span>: <span class="nc">I</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Self</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="bp">Self</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">iter</span>: <span class="nc">from</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">fn</span> <span class="nf">next</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nc">std</span>::<span class="kt">str</span>::<span class="n">FromStr</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">iter</span><span class="p">.</span><span class="n">next</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="n">parse</span><span class="p">().</span><span class="n">ok</span><span class="p">().</span><span class="n">unwrap</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p><code>get_day()</code>함수를 통하여 $MM\ DD$꼴의 입력을 $d$ 꼴로 바꿔주었고, 각 구간들을 정렬한 후, $s_i &lt; d &lt; e_i$를 만족하며 $e_i$가 최대가 되는 $i$를 찾은 후, $d$를 $e_i$로 업데이트 하며 합친 구간의 개수들을 더해주었습니다.</p>
+<h1 id="후기">후기<a hidden class="anchor" aria-hidden="true" href="#후기">#</a></h1>
+<p>전형적인 그리디 유형이라 어느정도 직관이 있으신 분들은 쉽게 풀었을 수도 있는 문제입니다. 부등호를 포함하여 예외처리가 조금 어려웠지만 재밌었습니다.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/ps/">Ps</a></li>
+      <li><a href="http://localhost:1313/tags/%EA%B7%B8%EB%A6%AC%EB%94%94/">그리디</a></li>
+      <li><a href="http://localhost:1313/tags/greedy/">Greedy</a></li>
+      <li><a href="http://localhost:1313/tags/%EC%A0%95%EB%A0%AC/">정렬</a></li>
+      <li><a href="http://localhost:1313/tags/sortings/">Sortings</a></li>
+      <li><a href="http://localhost:1313/tags/%EB%B0%B1%EC%A4%80/">백준</a></li>
+      <li><a href="http://localhost:1313/tags/boj/">Boj</a></li>
+      <li><a href="http://localhost:1313/tags/5647/">5647</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/posts/boj-23048/">
+    <span class="title">Next »</span>
+    <br>
+    <span>BOJ 23048 - 자연수 색칠하기</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/">aerae</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

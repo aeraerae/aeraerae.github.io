@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Greedy on aerae</title>
+    <link>http://localhost:1313/tags/greedy/</link>
+    <description>Recent content in Greedy on aerae</description>
+    <image>
+      <title>aerae</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.128.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Mon, 09 Sep 2024 14:41:51 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/greedy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BOJ 2457 - 공주님의 정원</title>
+      <link>http://localhost:1313/posts/boj-2457/</link>
+      <pubDate>Mon, 09 Sep 2024 14:41:51 +0900</pubDate>
+      <guid>http://localhost:1313/posts/boj-2457/</guid>
+      <description>문제 링크
+(2024/9/10 기준) Gold V
+문제 읽기 </description>
+    </item>
+  </channel>
+</rss>

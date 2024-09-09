@@ -11,8 +11,17 @@
     </image>
     <generator>Hugo -- 0.128.0</generator>
     <language>ko</language>
-    <lastBuildDate>Tue, 16 Jul 2024 20:43:17 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 09 Sep 2024 14:41:51 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/5647/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BOJ 2457 - 공주님의 정원</title>
+      <link>http://localhost:1313/posts/boj-2457/</link>
+      <pubDate>Mon, 09 Sep 2024 14:41:51 +0900</pubDate>
+      <guid>http://localhost:1313/posts/boj-2457/</guid>
+      <description>문제 링크
+(2024/9/10 기준) Gold V
+문제 읽기 </description>
+    </item>
     <item>
       <title>BOJ 5647 - 연속 합</title>
       <link>http://localhost:1313/posts/boj-5647/</link>

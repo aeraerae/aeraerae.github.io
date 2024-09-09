@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Sortings on aerae</title>
+    <link>http://localhost:1313/tags/sortings/</link>
+    <description>Recent content in Sortings on aerae</description>
+    <image>
+      <title>aerae</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.128.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Mon, 09 Sep 2024 14:41:51 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/sortings/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BOJ 2457 - 공주님의 정원</title>
+      <link>http://localhost:1313/posts/boj-2457/</link>
+      <pubDate>Mon, 09 Sep 2024 14:41:51 +0900</pubDate>
+      <guid>http://localhost:1313/posts/boj-2457/</guid>
+      <description>문제 링크
+(2024/9/9 기준) Gold III
+문제 읽기 꽃이 $N$종류 주어집니다. 각각의 꽃은 피는 날과 지는 날이 각각 $MM\ DD$꼴로 주어지고, 최소한의 종류의 꽃으로 $3$월 $1$일부터 $11$월 $31$일까지 적어도 한 종류의 꽃이 피어있도록 배치해봅시다. 단, $D$일에 꽃이 진다고 하면, $D$일에는 꽃이 피지 않았다고 해야함에 유의합시다.
+예시 1 1 5 31 1 1 6 30 5 15 8 31 6 10 12 10 이 입력으로 들어온다면, $1$월 $1$일부터 $6$월 $30$일까지 피는 꽃과, $6$월 $10$일부터 $12$월 $10$일에 지는 꽃 $2$개를 선택하여 조건을 만족시킬 수 있습니다.</description>
+    </item>
+  </channel>
+</rss>
