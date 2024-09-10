@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>하노이 on aerae</title>
+    <link>http://localhost:1313/tags/%ED%95%98%EB%85%B8%EC%9D%B4/</link>
+    <description>Recent content in 하노이 on aerae</description>
+    <image>
+      <title>aerae</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.128.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Tue, 10 Sep 2024 14:53:11 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%ED%95%98%EB%85%B8%EC%9D%B4/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BOJ 11729 - 3&#43;1 하노이 탑</title>
+      <link>http://localhost:1313/posts/boj-11729/</link>
+      <pubDate>Tue, 10 Sep 2024 14:53:11 +0900</pubDate>
+      <guid>http://localhost:1313/posts/boj-11729/</guid>
+      <description>문제 링크
+(2024/9/9 기준) Gold III
+문제 읽기 하노이 탑 변형 문제입니다. 대신 기둥 $D$가 추가되었고, 기둥 $D$에 한 번 옮기면 다시 뺄 수 없습니다. 이외에는 기존 하노이 탑과 규칙이 동일합니다. $N$개의 원판을 기둥 $D$에 옮기는 최소 이동 횟수와, 그러한 이동 방법을 하나 찾아봅시다.
+예시 편의를 위해 위에서 $N$번째 원판을 $N$번 원판이라고 하겠습니다. $N=2$일 때,
+$1$번 원판을 $B$로 옮기고 $2$번 원판을 $D$로 옮기고 $1$번 원판을 $D$로 옮겨서 최소 이동 횟수 $3$회로 모든 원판을 기둥 $D$로 옮길 수 있습니다.</description>
+    </item>
+  </channel>
+</rss>

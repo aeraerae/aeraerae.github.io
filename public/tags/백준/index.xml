@@ -11,16 +11,28 @@
     </image>
     <generator>Hugo -- 0.128.0</generator>
     <language>ko</language>
-    <lastBuildDate>Mon, 09 Sep 2024 14:41:51 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 10 Sep 2024 14:53:11 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/%EB%B0%B1%EC%A4%80/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BOJ 11729 - 3&#43;1 하노이 탑</title>
+      <link>http://localhost:1313/posts/boj-11729/</link>
+      <pubDate>Tue, 10 Sep 2024 14:53:11 +0900</pubDate>
+      <guid>http://localhost:1313/posts/boj-11729/</guid>
+      <description>문제 링크
+(2024/9/9 기준) Gold III
+문제 읽기 하노이 탑 변형 문제입니다. 대신 기둥 $D$가 추가되었고, 기둥 $D$에 한 번 옮기면 다시 뺄 수 없습니다. 이외에는 기존 하노이 탑과 규칙이 동일합니다. $N$개의 원판을 기둥 $D$에 옮기는 최소 이동 횟수와, 그러한 이동 방법을 하나 찾아봅시다.
+예시 편의를 위해 위에서 $N$번째 원판을 $N$번 원판이라고 하겠습니다. $N=2$일 때,
+$1$번 원판을 $B$로 옮기고 $2$번 원판을 $D$로 옮기고 $1$번 원판을 $D$로 옮겨서 최소 이동 횟수 $3$회로 모든 원판을 기둥 $D$로 옮길 수 있습니다.</description>
+    </item>
     <item>
       <title>BOJ 2457 - 공주님의 정원</title>
       <link>http://localhost:1313/posts/boj-2457/</link>
       <pubDate>Mon, 09 Sep 2024 14:41:51 +0900</pubDate>
       <guid>http://localhost:1313/posts/boj-2457/</guid>
       <description>문제 링크
-(2024/9/10 기준) Gold V
-문제 읽기 </description>
+(2024/9/9 기준) Gold III
+문제 읽기 꽃이 $N$종류 주어집니다. 각각의 꽃은 피는 날과 지는 날이 각각 $MM\ DD$꼴로 주어지고, 최소한의 종류의 꽃으로 $3$월 $1$일부터 $11$월 $31$일까지 매일 적어도 한 종류의 꽃이 피어있도록 배치해봅시다. 단, $d$일에 꽃이 지는 경우, $d$일에는 꽃이 피어있지 않았음에 유의합시다.
+예시 4 1 1 5 31 1 1 6 30 5 15 8 31 6 10 12 10 예제 1입니다. $4$종류의 꽃이 주어졌고, 이 중 $1$월 $1$일부터 $6$월 $30$일까지 피는 꽃과, $6$월 $10$일부터 $12$월 $10$일에 지는 꽃 $2$개를 선택하여 조건을 만족시킬 수 있습니다.</description>
     </item>
     <item>
       <title>BOJ 23048 - 자연수 색칠하기</title>

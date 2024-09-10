@@ -198,15 +198,32 @@ h2 {
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">BOJ 11729 - 3&#43;1 하노이 탑
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>문제 링크
+(2024/9/9 기준) Gold III
+문제 읽기 하노이 탑 변형 문제입니다. 대신 기둥 $D$가 추가되었고, 기둥 $D$에 한 번 옮기면 다시 뺄 수 없습니다. 이외에는 기존 하노이 탑과 규칙이 동일합니다. $N$개의 원판을 기둥 $D$에 옮기는 최소 이동 횟수와, 그러한 이동 방법을 하나 찾아봅시다.
+예시 편의를 위해 위에서 $N$번째 원판을 $N$번 원판이라고 하겠습니다. $N=2$일 때,
+$1$번 원판을 $B$로 옮기고 $2$번 원판을 $D$로 옮기고 $1$번 원판을 $D$로 옮겨서 최소 이동 횟수 $3$회로 모든 원판을 기둥 $D$로 옮길 수 있습니다....</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-09-10 14:53:11 +0900 KST'>September 10, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Aerae</footer>
+  <a class="entry-link" aria-label="post link to BOJ 11729 - 3&#43;1 하노이 탑" href="http://localhost:1313/posts/boj-11729/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">BOJ 2457 - 공주님의 정원
     </h2>
   </header>
   <div class="entry-content">
     <p>문제 링크
-(2024/9/10 기준) Gold V
-문제 읽기 </p>
+(2024/9/9 기준) Gold III
+문제 읽기 꽃이 $N$종류 주어집니다. 각각의 꽃은 피는 날과 지는 날이 각각 $MM\ DD$꼴로 주어지고, 최소한의 종류의 꽃으로 $3$월 $1$일부터 $11$월 $31$일까지 매일 적어도 한 종류의 꽃이 피어있도록 배치해봅시다. 단, $d$일에 꽃이 지는 경우, $d$일에는 꽃이 피어있지 않았음에 유의합시다.
+예시 4 1 1 5 31 1 1 6 30 5 15 8 31 6 10 12 10 예제 1입니다. $4$종류의 꽃이 주어졌고, 이 중 $1$월 $1$일부터 $6$월 $30$일까지 피는 꽃과, $6$월 $10$일부터 $12$월 $10$일에 지는 꽃 $2$개를 선택하여 조건을 만족시킬 수 있습니다....</p>
   </div>
-  <footer class="entry-footer"><span title='2024-09-09 14:41:51 +0900 KST'>September 9, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Aerae</footer>
+  <footer class="entry-footer"><span title='2024-09-09 14:41:51 +0900 KST'>September 9, 2024</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Aerae</footer>
   <a class="entry-link" aria-label="post link to BOJ 2457 - 공주님의 정원" href="http://localhost:1313/posts/boj-2457/"></a>
 </article>
 
@@ -253,22 +270,6 @@ $\underbrace{4&#43;5&#43;6&#43;7&#43;8} _{P} = \underbrace{9&#43;10&#43;11} _{Q}
   </div>
   <footer class="entry-footer"><span title='2024-07-13 23:49:56 +0900 KST'>July 13, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Aerae</footer>
   <a class="entry-link" aria-label="post link to 문해력 이슈 #1 - &#34;팝콘 브레인&#34;" href="http://localhost:1313/posts/popcorn-brain/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">등비수열의 합을 빠르게 구하기
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Intro 등비수열 $a_{n} = ar^{n-1}$의 합은 $$ S_n = \begin{cases} an &amp;\text{if } r=1\ \newline \frac{a(r^n - 1)}{r-1} &amp;\text{otherwise} \end{cases} $$ 로 나타낼 수 있습니다.
-$r=1$일 때 $S_n$이 다른 이유는, $\frac{a(r^n - 1)}{r-1}$의 분모가 $0$이 되기 때문입니다.
-이때는, $1$항부터 $n$항까지가 모두 $a$로 같으니, 간단하게 $an$으로 나타낼 수 있습니다.
-$n$이 커지면 커질 수록 $S_n$은 (말 그대로) 기하급수적으로 커지기 때문에, 일반적으로 PS에서는 $S_n$을 $m$으로 나눈 나머지를 구하도록 합니다.
-따라서, 이 글에서는 등비수열의 합 $S_n\ \textrm{mod}\ m$을 빠르게 구할 방법을 소개하겠습니다....</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-07-04 17:56:40 +0900 KST'>July 4, 2024</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Aerae</footer>
-  <a class="entry-link" aria-label="post link to 등비수열의 합을 빠르게 구하기" href="http://localhost:1313/posts/fast-geometric-sequence-sum/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
