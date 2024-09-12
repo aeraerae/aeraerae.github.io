@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Dp on aerae</title>
+    <link>http://localhost:1313/tags/dp/</link>
+    <description>Recent content in Dp on aerae</description>
+    <image>
+      <title>aerae</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.128.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Fri, 13 Sep 2024 00:03:28 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/dp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Boj 2240</title>
+      <link>http://localhost:1313/posts/boj-2240/</link>
+      <pubDate>Fri, 13 Sep 2024 00:03:28 +0900</pubDate>
+      <guid>http://localhost:1313/posts/boj-2240/</guid>
+      <description>문제 링크
+(2024/9/13 기준) Gold V
+문제 읽기 문제가 살짝 난해합니다;
+$1$번 나무와 $2$번 나무에서 $1$초부터 $T$초까지 $1$초에 하나씩, 총 $T$개의 자두가 떨어집니다. $W$번 이하로 이동하며 떨어지는 자두를 받았을 때의 최댓값을 구해봅시다.</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>누적 합 on aerae</title>
+    <link>http://localhost:1313/tags/%EB%88%84%EC%A0%81-%ED%95%A9/</link>
+    <description>Recent content in 누적 합 on aerae</description>
+    <image>
+      <title>aerae</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.128.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Thu, 12 Sep 2024 23:20:14 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%EB%88%84%EC%A0%81-%ED%95%A9/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BOJ 17251 - 힘 겨루기</title>
+      <link>http://localhost:1313/posts/boj-17251/</link>
+      <pubDate>Thu, 12 Sep 2024 23:20:14 +0900</pubDate>
+      <guid>http://localhost:1313/posts/boj-17251/</guid>
+      <description>문제 링크
+(2024/9/12 기준) Silver I
+문제 읽기 $N$명의 사람들이 일렬로 서 있습니다. 왼쪽에서 $i$ (단, $1 \leq i &amp;lt; N$)번째 사람까지는 홍팀, 나머지는 청팀으로, 총 $N-1$가지 방법으로 팀을 나눌 수 있습니다. 이때, 각 팀에서 힘이 가장 센 사람이 힘을 겨루어, 두 사람 중 힘이 더 센 사람이 포함된 팀이 승리하게 됩니다. (무승부일 때는 어느 팀도 승리하지 않습니다.) 둘 중 어느 팀이 승리할 확률이 더 높을까요?
+풀이 일단, 전체 경우의 수는 $N-1$로 고정되어 있습니다.</description>
+    </item>
+  </channel>
+</rss>

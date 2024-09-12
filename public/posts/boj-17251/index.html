@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>BOJ 17251 - 힘 겨루기 | aerae</title>
+<meta name="keywords" content="ps, 누적 합, prefix sum, 백준, boj, 17252">
+<meta name="description" content="문제 링크
+(2024/9/12 기준) Silver I
+문제 읽기 $N$명의 사람들이 일렬로 서 있습니다. 왼쪽에서 $i$ (단, $1 \leq i &lt; N$)번째 사람까지는 홍팀, 나머지는 청팀으로, 총 $N-1$가지 방법으로 팀을 나눌 수 있습니다. 이때, 각 팀에서 힘이 가장 센 사람이 힘을 겨루어, 두 사람 중 힘이 더 센 사람이 포함된 팀이 승리하게 됩니다. (무승부일 때는 어느 팀도 승리하지 않습니다.) 둘 중 어느 팀이 승리할 확률이 더 높을까요?
+풀이 일단, 전체 경우의 수는 $N-1$로 고정되어 있습니다.">
+<meta name="author" content="Aerae">
+<link rel="canonical" href="http://localhost:1313/posts/boj-17251/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/boj-17251/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" integrity="sha384-nB0miv6/jRmo5UMMR1wu3Gz6NLsoTkbqJghGIsx//Rlm+ZU03BU6SQNC66uf4l5+" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" integrity="sha384-7zkQWkzuo3B5mTepMUcHkMB5jZaolc2xDwL6VFqjFALcbeS9Ggm/Yr2r3Dy4lfFg" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" integrity="sha384-43gviWU0YVjaDtb/GhzOouOXtZMP/7XUzwPTstBeZFe/+rCMvRwr4yROQP43s0Xk" crossorigin="anonymous"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          
+          
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false}
+          ],
+          
+          throwOnError : false
+        });
+    });
+</script>
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" />
+<style>
+body {
+	font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+h1 {
+	font-weight: 900;
+}
+
+h2 {
+	font-weight: 800;
+}
+
+</style>
+
+
+  
+
+<meta property="og:title" content="BOJ 17251 - 힘 겨루기" />
+<meta property="og:description" content="문제 링크
+(2024/9/12 기준) Silver I
+문제 읽기 $N$명의 사람들이 일렬로 서 있습니다. 왼쪽에서 $i$ (단, $1 \leq i &lt; N$)번째 사람까지는 홍팀, 나머지는 청팀으로, 총 $N-1$가지 방법으로 팀을 나눌 수 있습니다. 이때, 각 팀에서 힘이 가장 센 사람이 힘을 겨루어, 두 사람 중 힘이 더 센 사람이 포함된 팀이 승리하게 됩니다. (무승부일 때는 어느 팀도 승리하지 않습니다.) 둘 중 어느 팀이 승리할 확률이 더 높을까요?
+풀이 일단, 전체 경우의 수는 $N-1$로 고정되어 있습니다." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/posts/boj-17251/" />
+<meta property="og:image" content="http://localhost:1313/images/papermod-cover.png" />
+<meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-09-12T23:20:14+09:00" />
+<meta property="article:modified_time" content="2024-09-12T23:20:14+09:00" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="http://localhost:1313/images/papermod-cover.png" />
+<meta name="twitter:title" content="BOJ 17251 - 힘 겨루기"/>
+<meta name="twitter:description" content="문제 링크
+(2024/9/12 기준) Silver I
+문제 읽기 $N$명의 사람들이 일렬로 서 있습니다. 왼쪽에서 $i$ (단, $1 \leq i &lt; N$)번째 사람까지는 홍팀, 나머지는 청팀으로, 총 $N-1$가지 방법으로 팀을 나눌 수 있습니다. 이때, 각 팀에서 힘이 가장 센 사람이 힘을 겨루어, 두 사람 중 힘이 더 센 사람이 포함된 팀이 승리하게 됩니다. (무승부일 때는 어느 팀도 승리하지 않습니다.) 둘 중 어느 팀이 승리할 확률이 더 높을까요?
+풀이 일단, 전체 경우의 수는 $N-1$로 고정되어 있습니다."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "BOJ 17251 - 힘 겨루기",
+      "item": "http://localhost:1313/posts/boj-17251/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "BOJ 17251 - 힘 겨루기",
+  "name": "BOJ 17251 - 힘 겨루기",
+  "description": "문제 링크\n(2024/9/12 기준) Silver I\n문제 읽기 $N$명의 사람들이 일렬로 서 있습니다. 왼쪽에서 $i$ (단, $1 \\leq i \u0026lt; N$)번째 사람까지는 홍팀, 나머지는 청팀으로, 총 $N-1$가지 방법으로 팀을 나눌 수 있습니다. 이때, 각 팀에서 힘이 가장 센 사람이 힘을 겨루어, 두 사람 중 힘이 더 센 사람이 포함된 팀이 승리하게 됩니다. (무승부일 때는 어느 팀도 승리하지 않습니다.) 둘 중 어느 팀이 승리할 확률이 더 높을까요?\n풀이 일단, 전체 경우의 수는 $N-1$로 고정되어 있습니다.",
+  "keywords": [
+    "ps", "누적 합", "prefix sum", "백준", "boj", "17252"
+  ],
+  "articleBody": "문제 링크\n(2024/9/12 기준) Silver I\n문제 읽기 $N$명의 사람들이 일렬로 서 있습니다. 왼쪽에서 $i$ (단, $1 \\leq i \u003c N$)번째 사람까지는 홍팀, 나머지는 청팀으로, 총 $N-1$가지 방법으로 팀을 나눌 수 있습니다. 이때, 각 팀에서 힘이 가장 센 사람이 힘을 겨루어, 두 사람 중 힘이 더 센 사람이 포함된 팀이 승리하게 됩니다. (무승부일 때는 어느 팀도 승리하지 않습니다.) 둘 중 어느 팀이 승리할 확률이 더 높을까요?\n풀이 일단, 전체 경우의 수는 $N-1$로 고정되어 있습니다. 확률을 굳이 구하지 않고, 어느 팀이 더 많이 이겼는 지만 확인하면 됩니다.\n관찰을 조금 해봅시다. 홍팀은 $1$번째 사람부터, $i$번째 사람까지 포함합니다. 청팀은 $i+1$번째 사람부터 $N$번째 사람을 포함합니다. $i$를 조금씩 옮겨가다보면, $1$번째 사람은 반드시 홍팀에, $N$번째 사람은 반드시 청팀에 포함된다는 사실을 알 수 있습니다. 그렇다면, $1$번째 사람부터 $i$번째 사람까지 홍팀에 포함했을 때, 홍팀에서 가장 힘이 센 사람의 힘을 $R_i$, 청팀에서 가장 힘이 센 사람의 힘을 $B_i$라고 합시다. $P_k$을 $k$번째 사람의 힘이라고 하면, $R_i$는 $R_1 = P_1$, $R_i = \\textrm{max}(R_{i-1}, P_{i})$가 되고, 비슷한 방법으로 $B_{n-1} = P_n$, $B_i = \\textrm{max}(B_{i+1}, P_{i+1})$가 됩니다. 이는 누적합을 통해 각각 $\\mathcal{O}(N)$에 구할 수 있습니다.\n이제, $i$에 $1$부터 $N-1$까지 넣어보면서 청팀 또는 홍팀이 이기는 경우를 세어주면 됩니다. 역시 시간복잡도는 $\\mathcal{O}(N)$입니다. 청팀과 홍팀 모두 이기는 경우의 수가 같을 땐, X를 출력해야 함에 유의합시다.\n코드 use std::{fmt::Write, io::{stdin, Read}, str::SplitWhitespace}; fn main() { let mut buf = String::new(); let mut out = String::new(); stdin().read_to_string(\u0026mut buf).unwrap(); let mut scan = Scanner::new(buf.split_whitespace()); //let tc = scan.next(); //for i in 0..tc { solve(\u0026mut scan, \u0026mut out, 0); //} println!(\"{out}\"); } // overflow, edge case, and 1 based index? fn solve\u003c'a\u003e(scan: \u0026mut Scanner\u003c'a, SplitWhitespace\u003c'a\u003e\u003e, out: \u0026mut String, _tc: usize) { let n: usize = scan.next(); let mut a = vec![0; n]; for i in 0..n { a[i] = scan.next::\u003ci32\u003e(); } let mut r = vec![0; n - 1]; r[0] = a[0]; for i in 1..(n - 1) { r[i] = if r[i - 1] \u003c a[i] { a[i] } else { r[i - 1] }; } let mut b = vec![0; n - 1]; b[n - 2] = a[n - 1]; for i in (0..(n - 2)).rev() { b[i] = if b[i + 1] \u003c a[i + 1] { a[i + 1] } else { b[i + 1] }; } let mut rw = 0; let mut bw = 0; for i in 0..(n - 1) { if r[i] \u003e b[i] { rw += 1; } if r[i] \u003c b[i] { bw += 1; } } writeln!(out, \"{}\", if rw \u003e bw { 'R' } else if rw \u003c bw { 'B' } else { 'X' }).ok(); } struct Scanner\u003c'a, I: Iterator\u003cItem = \u0026'a str\u003e\u003e { iter: I, } impl\u003c'a, I: Iterator\u003cItem = \u0026'a str\u003e\u003e Scanner\u003c'a, I\u003e { fn new(from: I) -\u003e Self { Self { iter: from } } fn next\u003cT: std::str::FromStr\u003e(\u0026mut self) -\u003e T { self.iter.next().unwrap().parse().ok().unwrap() } } 핵심은 $R_i$와 $B_i$를 구하는 과정인데요, 구간의 시작과 끝인 $1$, $i$, $i+1$, $N$ 중 고정된 값은 $1$과 $N$이므로, $R_i$는 정방향으로, $B_i$는 역방향으로 누적하며 최댓값을 채워주었습니다.\n후기 조금은 아이디어성의 문제라고 생각했지만, 누적합을 응용해 구간의 최댓값/최솟값을 관리하는 방법이 기초 문제에 있다고 하네요…\n+ 놀랍게도 브루트포스를 살짝만 최적화해도 풀린다고 합니다. 충격!\n",
+  "wordCount" : "508",
+  "inLanguage": "en",
+  "image": "http://localhost:1313/images/papermod-cover.png","datePublished": "2024-09-12T23:20:14+09:00",
+  "dateModified": "2024-09-12T23:20:14+09:00",
+  "author":{
+    "@type": "Person",
+    "name": "Aerae"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/posts/boj-17251/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "aerae",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="aerae (Alt + H)">aerae</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/posts/" title="게시글">
+                    <span>게시글</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="카테고리">
+                    <span>카테고리</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="태그">
+                    <span>태그</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      BOJ 17251 - 힘 겨루기
+    </h1>
+    <div class="post-meta"><span title='2024-09-12 23:20:14 +0900 KST'>September 12, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Aerae&nbsp;|&nbsp;<a href="https://github.com/aeraerae/aeraerae.github.io/tree/main/content/posts/boj-17251.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%eb%ac%b8%ec%a0%9c-%ec%9d%bd%ea%b8%b0" aria-label="문제 읽기">문제 읽기</a></li>
+                <li>
+                    <a href="#%ed%92%80%ec%9d%b4" aria-label="풀이">풀이</a></li>
+                <li>
+                    <a href="#%ec%bd%94%eb%93%9c" aria-label="코드">코드</a></li>
+                <li>
+                    <a href="#%ed%9b%84%ea%b8%b0" aria-label="후기">후기</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p><a href="https://www.acmicpc.net/problem/17251">문제 링크</a><br>
+(2024/9/12 기준) <span style="color: #435f7a;">Silver I</span></p>
+<h1 id="문제-읽기">문제 읽기<a hidden class="anchor" aria-hidden="true" href="#문제-읽기">#</a></h1>
+<p>$N$명의 사람들이 일렬로 서 있습니다. 왼쪽에서 $i$ (단, $1 \leq i &lt; N$)번째 사람까지는 홍팀, 나머지는 청팀으로, 총 $N-1$가지 방법으로 팀을 나눌 수 있습니다. 이때, 각 팀에서 힘이 가장 센 사람이 힘을 겨루어, 두 사람 중 힘이 더 센 사람이 포함된 팀이 승리하게 됩니다. (무승부일 때는 어느 팀도 승리하지 않습니다.) 둘 중 어느 팀이 승리할 확률이 더 높을까요?</p>
+<h1 id="풀이">풀이<a hidden class="anchor" aria-hidden="true" href="#풀이">#</a></h1>
+<p>일단, 전체 경우의 수는 $N-1$로 고정되어 있습니다. 확률을 굳이 구하지 않고, 어느 팀이 더 많이 이겼는 지만 확인하면 됩니다.</p>
+<p>관찰을 조금 해봅시다. 홍팀은 $1$번째 사람부터, $i$번째 사람까지 포함합니다. 청팀은 $i+1$번째 사람부터 $N$번째 사람을 포함합니다. $i$를 조금씩 옮겨가다보면, $1$번째 사람은 반드시 홍팀에, $N$번째 사람은 반드시 청팀에 포함된다는 사실을 알 수 있습니다. 그렇다면, $1$번째 사람부터 $i$번째 사람까지 홍팀에 포함했을 때, 홍팀에서 가장 힘이 센 사람의 힘을 $R_i$, 청팀에서 가장 힘이 센 사람의 힘을 $B_i$라고 합시다. $P_k$을 $k$번째 사람의 힘이라고 하면, $R_i$는 $R_1 = P_1$, $R_i = \textrm{max}(R_{i-1}, P_{i})$가 되고, 비슷한 방법으로 $B_{n-1} = P_n$, $B_i = \textrm{max}(B_{i+1}, P_{i+1})$가 됩니다. 이는 누적합을 통해 각각 $\mathcal{O}(N)$에 구할 수 있습니다.</p>
+<p>이제, $i$에 $1$부터 $N-1$까지 넣어보면서 청팀 또는 홍팀이 이기는 경우를 세어주면 됩니다. 역시 시간복잡도는 $\mathcal{O}(N)$입니다. 청팀과 홍팀 모두 이기는 경우의 수가 같을 땐, <code>X</code>를 출력해야 함에 유의합시다.</p>
+<h1 id="코드">코드<a hidden class="anchor" aria-hidden="true" href="#코드">#</a></h1>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="p">{</span><span class="n">fmt</span>::<span class="n">Write</span><span class="p">,</span><span class="w"> </span><span class="n">io</span>::<span class="p">{</span><span class="n">stdin</span><span class="p">,</span><span class="w"> </span><span class="n">Read</span><span class="p">},</span><span class="w"> </span><span class="kt">str</span>::<span class="n">SplitWhitespace</span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">String</span>::<span class="n">new</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">stdin</span><span class="p">().</span><span class="n">read_to_string</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">buf</span><span class="p">).</span><span class="n">unwrap</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">scan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Scanner</span>::<span class="n">new</span><span class="p">(</span><span class="n">buf</span><span class="p">.</span><span class="n">split_whitespace</span><span class="p">());</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//let tc = scan.next();
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="c1">//for i in 0..tc {
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="n">solve</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">scan</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c1">//}
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&#34;</span><span class="si">{out}</span><span class="s">&#34;</span><span class="p">);</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c1">// overflow, edge case, and 1 based index?
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">fn</span> <span class="nf">solve</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="o">&gt;</span><span class="p">(</span><span class="n">scan</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="n">Scanner</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="p">,</span><span class="w"> </span><span class="n">SplitWhitespace</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="o">&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">out</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">String</span><span class="p">,</span><span class="w"> </span><span class="n">_tc</span>: <span class="kt">usize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">n</span>: <span class="kt">usize</span> <span class="o">=</span><span class="w"> </span><span class="n">scan</span><span class="p">.</span><span class="n">next</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="n">n</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">scan</span><span class="p">.</span><span class="n">next</span>::<span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">1</span><span class="o">..</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="fm">vec!</span><span class="p">[</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">b</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="p">)).</span><span class="n">rev</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">};</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">rw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">bw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">rw</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">bw</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="fm">writeln!</span><span class="p">(</span><span class="n">out</span><span class="p">,</span><span class="w"> </span><span class="s">&#34;{}&#34;</span><span class="p">,</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">rw</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">bw</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="sc">&#39;R&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">rw</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">bw</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="sc">&#39;B&#39;</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="sc">&#39;X&#39;</span><span class="w"> </span><span class="p">}).</span><span class="n">ok</span><span class="p">();</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">struct</span> <span class="nc">Scanner</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="p">,</span><span class="w"> </span><span class="n">I</span>: <span class="nb">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="na">&#39;a</span><span class="w"> </span><span class="kt">str</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">iter</span>: <span class="nc">I</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">impl</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="p">,</span><span class="w"> </span><span class="n">I</span>: <span class="nb">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="na">&#39;a</span><span class="w"> </span><span class="kt">str</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">Scanner</span><span class="o">&lt;</span><span class="na">&#39;a</span><span class="p">,</span><span class="w"> </span><span class="n">I</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">fn</span> <span class="nf">new</span><span class="p">(</span><span class="n">from</span>: <span class="nc">I</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">Self</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="bp">Self</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">iter</span>: <span class="nc">from</span><span class="w"> </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">fn</span> <span class="nf">next</span><span class="o">&lt;</span><span class="n">T</span>: <span class="nc">std</span>::<span class="kt">str</span>::<span class="n">FromStr</span><span class="o">&gt;</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="nc">T</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">iter</span><span class="p">.</span><span class="n">next</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="n">parse</span><span class="p">().</span><span class="n">ok</span><span class="p">().</span><span class="n">unwrap</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>핵심은 $R_i$와 $B_i$를 구하는 과정인데요, 구간의 시작과 끝인 $1$, $i$, $i+1$, $N$ 중 고정된 값은 $1$과 $N$이므로, $R_i$는 정방향으로, $B_i$는 역방향으로 누적하며 최댓값을 채워주었습니다.</p>
+<h1 id="후기">후기<a hidden class="anchor" aria-hidden="true" href="#후기">#</a></h1>
+<p>조금은 아이디어성의 문제라고 생각했지만, 누적합을 응용해 구간의 최댓값/최솟값을 관리하는 방법이 기초 문제에 있다고 하네요&hellip;</p>
+<p>+ 놀랍게도 브루트포스를 살짝만 최적화해도 풀린다고 합니다. 충격!</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/ps/">Ps</a></li>
+      <li><a href="http://localhost:1313/tags/%EB%88%84%EC%A0%81-%ED%95%A9/">누적 합</a></li>
+      <li><a href="http://localhost:1313/tags/prefix-sum/">Prefix Sum</a></li>
+      <li><a href="http://localhost:1313/tags/%EB%B0%B1%EC%A4%80/">백준</a></li>
+      <li><a href="http://localhost:1313/tags/boj/">Boj</a></li>
+      <li><a href="http://localhost:1313/tags/17252/">17252</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/boj-2240/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>BOJ 2240 - 자두나무</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/boj-11729/">
+    <span class="title">Next »</span>
+    <br>
+    <span>BOJ 11729 - 3&#43;1 하노이 탑</span>
+  </a>
+</nav>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2024 <a href="http://localhost:1313/">aerae</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
