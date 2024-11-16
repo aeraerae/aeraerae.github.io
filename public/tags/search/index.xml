@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Search on aerae</title>
+    <link>http://localhost:1313/tags/search/</link>
+    <description>Recent content in Search on aerae</description>
+    <image>
+      <title>aerae</title>
+      <url>http://localhost:1313/images/papermod-cover.png</url>
+      <link>http://localhost:1313/images/papermod-cover.png</link>
+    </image>
+    <generator>Hugo -- 0.128.0</generator>
+    <language>ko</language>
+    <lastBuildDate>Fri, 15 Nov 2024 18:12:10 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/search/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>이분 탐색(Binary Search)과 활용</title>
+      <link>http://localhost:1313/posts/binary-search/</link>
+      <pubDate>Fri, 15 Nov 2024 18:12:10 +0900</pubDate>
+      <guid>http://localhost:1313/posts/binary-search/</guid>
+      <description>Intro 이분 탐색 알고리즘은 컴퓨터 공학을 전공하지 않더라도 누구나 교양 시간에 배워봤을 만한 알고리즘입니다. 개념 자체는 직관적이지만, 그 응용은 상당히 어렵습니다. 오늘은 이분 탐색에 대해 다뤄보겠습니다.
+이분 탐색의 정당성 </description>
+    </item>
+  </channel>
+</rss>

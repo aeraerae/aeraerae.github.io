@@ -14,14 +14,16 @@
     <lastBuildDate>Fri, 13 Sep 2024 00:03:28 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/categories/ps-%ED%95%B4%EC%84%A4/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Boj 2240</title>
+      <title>BOJ 2240 - 자두나무</title>
       <link>http://localhost:1313/posts/boj-2240/</link>
       <pubDate>Fri, 13 Sep 2024 00:03:28 +0900</pubDate>
       <guid>http://localhost:1313/posts/boj-2240/</guid>
       <description>문제 링크
 (2024/9/13 기준) Gold V
 문제 읽기 문제가 살짝 난해합니다;
-$1$번 나무와 $2$번 나무에서 $1$초부터 $T$초까지 $1$초에 하나씩, 총 $T$개의 자두가 떨어집니다. $W$번 이하로 이동하며 떨어지는 자두를 받았을 때의 최댓값을 구해봅시다.</description>
+$1$초부터 $T$초까지 매 초 $1$번 나무 또는 $2$번 나무에서 하나씩, 총 $T$개의 자두가 떨어집니다. $W$번 이하로 이동하며 떨어지는 자두를 받았을 때의 최댓값을 구해봅시다. 처음 시작은 $1$번 나무입니다.
+풀이 제한을 잘 살펴봅시다. $T \leq 1 000$, $W \leq 30$, 나무가 $2$그루 있으니, dp[현재 시간][현재 위치][현재까지 이동한 횟수]로 3차원 DP를 해볼 수 있을 것 같습니다.
+우선, DP 테이블에 초깃값들을 채워봅시다. $t$초에 자두가 떨어진 나무의 위치를 $P_t$라고 하면, $1$초에 $1$번 나무에서 시작하니, $DP_{1, 1, 0}=[P_i = 1]$이 되겠고 (편의상 $[c]$는 조건 $c$가 참이면 $1$, 거짓이면 $0$ 값을 가진다고 약속합시다), $1$초에 자두가 떨어지기 전 $2$번 나무로 움직였다면, $DP_{1, 2, 1}=[P_i = 2]$가 됩니다.</description>
     </item>
     <item>
       <title>BOJ 17251 - 힘 겨루기</title>
