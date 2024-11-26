@@ -54,7 +54,7 @@ BusTaeWarJo라는 팀명은 AlKon 회장님이 정해주신 대회 접수 마감
 
 저는 잡고있던 D가 그리디 문제고, 대각선끼리 만나는 교점을 가지고 비벼보면 될 것 같단 생각을 했지만, 팀원들에게 관찰한 내용을 말해주니 2-SAT 같다면서 버리자고 했습니다. 이후 <span style="color: #FF8C00 !important">**yookwi**</span>가 저에게 MST 쓰는 문제 같으니 C번을 잡아보라고 줬지만, 20분동안 별 진전이 없었습니다. 다시 <span style="color: #FF8C00 !important">**yookwi**</span>에게 C번을 넘기고 이때까지 저와 <span style="color: #a0a !important">**motsuni04**</span>는 K번의 상한이 생각보다 널널하다는 점을 관찰해 풀이를 대충 알아냈고, 코드까지 공책에 적었지만 <span style="color: #FF8C00 !important">**yookwi**</span>가 맞왜틀을 하며 테스트 케이스를 만들어주는 데 올인했습니다. 팀노트를 대회 하루 전 <span style="color: #FF8C00 !important">**yookwi**</span>가 정말 대충 만들어왔는데, 정말 운이 좋게도 단절점/단절선 알고리즘이 있어서 유용하게 사용했습니다. 7번의 시도 끝에 결국 C를 풀고 스코어보드를 보니 본선 진출이 확정되었습니다. 너무 재밌었습니다.
 
-이후 마침 근처에서 예선을 치른 AlKon 회장 **dldyou**님과 <span style="color: #a0a !important">**pizzaroot**</span> 팀이랑 저녁식사를 했습니다. 양식집이었는데, 피자와 파스타를 정말 맛있게 먹었습니다. 그 다음날 있을 정보보안 동아리 대회에서 출제를 하시게 된 **dldyou**님과 학부생 연구원 일로 바쁘신 **javago**님은 먼저 가시고, 나머지는 보드게임 카페에 가서 능지대결을 펼쳤습니다.
+이후 마침 근처에서 예선을 치른 AlKon 회장 **dldyou**님과 <span style="color: #a0a !important">**pizzaroot**</span> 팀이랑 저녁식사를 했습니다. 양식집이었는데, 피자와 파스타를 정말 맛있게 먹었습니다. 그 다음날 있을 정보보안 동아리 대회에서 출제를 하시게 된 **dldyou**님과 많이 바쁘셨던 **javago**님은 먼저 가시고, 나머지는 보드게임 카페에 가서 능지대결을 펼쳤습니다.
 
 이후 예선 19등으로 마무리하는 줄 알았지만, C번 정해에 이상이 있었다는 것이 발견되고, 재채점 결과 25등으로 마무리하게 되었습니다... 뭐 본선 진출은 했으니 된 거 아닐까요 ㅎㅎ;
 
@@ -74,7 +74,7 @@ BusTaeWarJo라는 팀명은 AlKon 회장님이 정해주신 대회 접수 마감
 
 <img src="/images/icpc-2024-seoul/IMG_6840.JPG">
 
-테트리스도 질려서 이제 할 일도 없는데 <span style="color: #a0a !important">**pizzaroot**</span> 팀은 아직 뭔가 열심히 하고 있어서, 제가 장미 접는 법을 <span style="color: #FF8C00 !important">**yookwi**</span>에게 전수해주었고, 결국 받은 문제지로 몽땅 장미를 접어놓고 나왔습니다. 예쁘죠? ㅎ
+테트리스도 질려서 이제 할 일도 없는데 <span style="color: #a0a !important">**pizzaroot**</span> 팀은 아직 뭔가 열심히 하고 있어서, 제가 장미 접는 법을 <span style="color: #FF8C00 !important">**yookwi**</span>에게 전수해주었고, 결국 둘이서 받은 문제지로 몽땅 장미를 접어놓고 나왔습니다. 예쁘죠? ㅎ
 
 연습 세션이 끝나고 대회장을 나와서 <span style="color: #a0a !important">**pizzaroot**</span> 팀과 또 저녁을 먹었습니다. 대화역 근처 노랑통닭을 갔는데 치킨으로 정말 배부르게 먹었습니다.
 
@@ -86,7 +86,7 @@ BusTaeWarJo라는 팀명은 AlKon 회장님이 정해주신 대회 접수 마감
 
 다행히 늦지 않게 등록을 마쳤고, <span style="color: #FF8C00 !important">**yookwi**</span>가 작년에 늦게 입장했다가 간식을 받지 못하는 대참사가 발생했다고 앞에 앉자 해서 제일 앞에 앉았습니다. (사실 올해는 간식이 없었고 물만 줬지만요)
 
-대회장에 가장 들어갔지만, 참가자들이 들어오는 속도가 생각보다 느려서 대회가 연기되었고, 저희 팀은 풍선의 개수, 색깔, 배치와 문제 난이도와의 상관관계를 예측하는 쓰잘데기 없는 짓으로 시간을 떼우다가 (사실 의미가 있었습니다!) 대회가 시작되었습니다.
+대회장에 가장 들어갔지만, 참가자들이 들어오는 속도가 생각보다 느려서 대회가 연기되었고, 저희 팀은 풍선의 개수, 색깔, 배치와 문제 난이도와의 상관관계를 예측하는 쓰잘데기 없는 짓으로 시간을 떼우다가 (사실 의미가 있었습니다!) 대회가 시작되었습니다. 다행히 키보드는 예비소집때보단 덜 나쁜 사무용 멤브레인 키보드였습니다.
 
 [본선 문제셋 (BOJ)](https://www.acmicpc.net/category/detail/4348)
 
@@ -100,15 +100,15 @@ BusTaeWarJo라는 팀명은 AlKon 회장님이 정해주신 대회 접수 마감
 
 **L (01:03)**
 
-이 문제도 처음에는 제가 잡았다가, 상위권 팀이 너무 빨리 풀어버려서, 새로운 삼각형을 만들 수 있는 격자점들이 $\gcd (\vert x_i - x_j \vert, \vert y_i - y_j \vert)$의 배수만 가능하다는 간단한 관찰과 함께 <span style="color: #a0a !important">**motsuni04**</span>에게 넘겨주었습니다. 구현을 잘 해서 다행히 한 번에 맞았습니다.
+이 문제도 처음에는 제가 잡았다가, 상위권 팀이 너무 빨리 풀어버려서, 새로운 삼각형을 만들 수 있는 격자점들이 $\gcd (\vert x_i - x_j \vert, \vert y_i - y_j \vert)$의 배수만 가능하다는 간단한 관찰과 함께 <span style="color: #a0a !important">**motsuni04**</span>에게 넘겨주었습니다. 구현을 잘 해서 다행히 한 번에 맞았습니다. 나중에 들어보니 <span style="color: #FF8C00 !important">**yookwi**</span>가 풀이를 대부분 완성했다고 합니다.
 
 **J (01:50) +2**
 
-<span style="color: #FF8C00 !important">**yookwi**</span>와 <span style="color: #a0a !important">**motsuni04**</span> 둘이 풀었습니다. 맞왜틀을 하면서 많이 고생했던 것으로 기억합니다. 저는 E를 풀었고, <span style="color: #FF8C00 !important">**yookwi**</span>에게 풀이를 설명했지만, 다익스트라를 쓸 생각을 해서 시간 안에 안 돌거라고 빠꾸를 먹고, 수학으로 구할 수 있다고 했지만, Convex Hull까지 구현에 동원하기 무서워 미뤄두기로 했습니다.
+<span style="color: #FF8C00 !important">**yookwi**</span>와 <span style="color: #a0a !important">**motsuni04**</span> 둘이 풀었습니다. 맞왜틀을 하면서 많이 고생했던 것으로 기억합니다. 저는 E를 풀었고, <span style="color: #FF8C00 !important">**yookwi**</span>에게 풀이를 설명했지만, 처음에 다익스트라를 쓸 생각을 해서 시간 안에 안 돌거라고 빠꾸를 먹고, 나중에 다시 수학으로 구할 수 있다고 했지만, Convex Hull까지 구현에 동원하기 무서워 미뤄두기로 했습니다.
 
 **F (03:01) +2**
 
-<span style="color: #FF8C00 !important">**yookwi**</span>의 오더로 저와 <span style="color: #a0a !important">**motsuni04**</span>가 손으로 직접 $n$이 작을 때를 직접 해보면서 규칙성을 찾아봤습니다. 처음에는 귀납적으로 증명할 수 있나 했지만, $0.7(n+1)^2 - 0.7n^2 = 1.4n + 0.7$, $n$번째가 정렬된 상태로 $n+1$ 페어를 추가해도 제한 안에 옮길 수 없다는 것을 확인했습니다. <span style="color: #a0a !important">**motsuni04**</span>가 꽤 적은 횟수로 정렬하는 데 성공했지만, 일관적으로 풀 수 없어서 한참을 더 잡고 있었고, 기적적으로 지그재그로 원소 $1$하나를 $1$번 인덱스에 갖다넣으면 이쁜 모양이 나오는 것을 관찰해서 <span style="color: #FF8C00 !important">**yookwi**</span>에게 넘겨주었습니다. <span style="color: #FF8C00 !important">**yookwi**</span>가 생각보다 빠르게 구현했지만, WA를 받았습니다. 셋이서 한참 디버깅을 한 후에, <span style="color: #FF8C00 !important">**yookwi**</span>가 결국 문제점을 찾았습니다. swap 연산을 하기 전에 출력했어야 했지만, swap 연산 이후에 출력을 해버려서 틀렸던 것이었습니다. 코드 두 줄의 순서를 바꿔서 AC를 받았습니다. 생각보다 종이에 쓸 게 많아서 풀고나서 손이 조금 아팠습니다.
+<span style="color: #FF8C00 !important">**yookwi**</span>의 오더로 저와 <span style="color: #a0a !important">**motsuni04**</span>가 손으로 직접 $n$이 작을 때를 직접 해보면서 규칙성을 찾아봤습니다. 처음에는 귀납적으로 증명할 수 있나 했지만, $0.7(n+1)^2 - 0.7n^2 = 1.4n + 0.7$, $n$번째가 정렬된 상태로 $n+1$ 페어를 추가해도 제한 안에 옮길 수 없다는 것을 확인했습니다. <span style="color: #a0a !important">**motsuni04**</span>가 꽤 적은 횟수로 정렬하는 데 성공했지만, 일관적으로 풀 수 없어서 한참을 더 잡고 있었고, 제가 기적적으로 지그재그로 원소 $1$하나를 $1$번 인덱스에 갖다넣으면 이쁜 모양이 나오는 것을 관찰해서 <span style="color: #FF8C00 !important">**yookwi**</span>에게 넘겨주었습니다. <span style="color: #FF8C00 !important">**yookwi**</span>가 생각보다 빠르게 구현했지만, WA를 받았습니다. 셋이서 한참 디버깅을 한 후에, <span style="color: #FF8C00 !important">**yookwi**</span>가 결국 문제점을 찾았습니다. swap 연산을 하기 전에 출력했어야 했지만, swap 연산 이후에 출력을 해버려서 틀렸던 것이었습니다. 코드 두 줄의 순서를 바꿔서 AC를 받았습니다. 생각보다 종이에 쓸 게 많아서 풀고나서 손이 조금 아팠습니다.
 
 이후로는 계속 C를 열심히 잡다가 TLE가 나올 각오로 제출해보았지만 WA를 받았고, E에 미련이 남은 제가 별찍기 코드를 제출해서 WA를 받고 5솔브 38위라는 조금 아쉬운 성적으로 대회가 종료되었습니다.
 
