@@ -50,9 +50,9 @@ BusTaeWarJo라는 팀명은 AlKon 회장님이 정해주신 대회 접수 마감
 
 <span style="color: #FF8C00 !important">**yookwi**</span>가 종이에 조금 적어보더니, 아는 문제라고 세그먼트 트리와 KMP를 빠르게 구현하여 AC를 받았습니다. 이정도면 본선컷은 넘길 수 있겠다는 생각에 기뻤습니다. 하지만... (후술)
 
-**C (02:39) +7**
+**G (02:39) +7**
 
-저는 잡고있던 D가 그리디 문제고, 대각선끼리 만나는 교점을 가지고 비벼보면 될 것 같단 생각을 했지만, 팀원들에게 관찰한 내용을 말해주니 2-SAT 같다면서 버리자고 했습니다. 이후 <span style="color: #FF8C00 !important">**yookwi**</span>가 저에게 MST 쓰는 문제 같으니 C번을 잡아보라고 줬지만, 20분동안 별 진전이 없었습니다. 다시 <span style="color: #FF8C00 !important">**yookwi**</span>에게 C번을 넘기고 이때까지 저와 <span style="color: #a0a !important">**motsuni04**</span>는 K번의 상한이 생각보다 널널하다는 점을 관찰해 풀이를 대충 알아냈고, 코드까지 공책에 적었지만 <span style="color: #FF8C00 !important">**yookwi**</span>가 맞왜틀을 하며 테스트 케이스를 만들어주는 데 올인했습니다. 팀노트를 대회 하루 전 <span style="color: #FF8C00 !important">**yookwi**</span>가 정말 대충 만들어왔는데, 정말 운이 좋게도 단절점/단절선 알고리즘이 있어서 유용하게 사용했습니다. 7번의 시도 끝에 결국 C를 풀고 스코어보드를 보니 본선 진출이 확정되었습니다. 너무 재밌었습니다.
+저는 잡고있던 D가 그리디 문제고, 대각선끼리 만나는 교점을 가지고 비벼보면 될 것 같단 생각을 했지만, 팀원들에게 관찰한 내용을 말해주니 2-SAT 같다면서 버리자고 했습니다. 이후 <span style="color: #FF8C00 !important">**yookwi**</span>가 저에게 MST 쓰는 문제 같으니 G번을 잡아보라고 줬지만, 20분동안 별 진전이 없었습니다. 다시 <span style="color: #FF8C00 !important">**yookwi**</span>에게 G번을 넘기고 이때까지 저와 <span style="color: #a0a !important">**motsuni04**</span>는 K번의 상한이 생각보다 널널하다는 점을 관찰해 풀이를 대충 알아냈고, 코드까지 공책에 적었지만 <span style="color: #FF8C00 !important">**yookwi**</span>가 맞왜틀을 하며 테스트 케이스를 만들어주는 데 올인했습니다. 팀노트를 대회 하루 전 <span style="color: #FF8C00 !important">**yookwi**</span>가 정말 대충 만들어왔는데, 정말 운이 좋게도 단절점/단절선 알고리즘이 있어서 유용하게 사용했습니다. 7번의 시도 끝에 결국 G를 풀고 스코어보드를 보니 본선 진출이 확정되었습니다. 너무 재밌었습니다.
 
 이후 마침 근처에서 예선을 치른 AlKon 회장 **dldyou**님과 <span style="color: #a0a !important">**pizzaroot**</span> 팀이랑 저녁식사를 했습니다. 양식집이었는데, 피자와 파스타를 정말 맛있게 먹었습니다. 그 다음날 있을 정보보안 동아리 대회에서 출제를 하시게 된 **dldyou**님과 많이 바쁘셨던 **javago**님은 먼저 가시고, 나머지는 보드게임 카페에 가서 능지대결을 펼쳤습니다.
 
