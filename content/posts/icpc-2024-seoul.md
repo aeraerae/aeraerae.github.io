@@ -52,7 +52,7 @@ BusTaeWarJo라는 팀명은 AlKon 회장님이 정해주신 대회 접수 마감
 
 **G (02:39) +7**
 
-저는 잡고있던 D가 그리디 문제고, 대각선끼리 만나는 교점을 가지고 비벼보면 될 것 같단 생각을 했지만, 팀원들에게 관찰한 내용을 말해주니 2-SAT 같다면서 버리자고 했습니다. 이후 <span style="color: #FF8C00 !important">**yookwi**</span>가 저에게 MST 쓰는 문제 같으니 G번을 잡아보라고 줬지만, 20분동안 별 진전이 없었습니다. 다시 <span style="color: #FF8C00 !important">**yookwi**</span>에게 G번을 넘기고 이때까지 저와 <span style="color: #a0a !important">**motsuni04**</span>는 K번의 상한이 생각보다 널널하다는 점을 관찰해 풀이를 대충 알아냈고, 코드까지 공책에 적었지만 <span style="color: #FF8C00 !important">**yookwi**</span>가 맞왜틀을 하며 테스트 케이스를 만들어주는 데 올인했습니다. 팀노트를 대회 하루 전 <span style="color: #FF8C00 !important">**yookwi**</span>가 정말 대충 만들어왔는데, 정말 운이 좋게도 단절점/단절선 알고리즘이 있어서 유용하게 사용했습니다. 7번의 시도 끝에 결국 G를 풀고 스코어보드를 보니 본선 진출이 확정되었습니다. 너무 재밌었습니다.
+저는 잡고있던 D가 그리디 문제고, 대각선끼리 만나는 교점을 가지고 비벼보면 될 것 같단 생각을 했지만, 팀원들에게 관찰한 내용을 말해주니 2-SAT 같다면서 버리자고 했습니다. 이후 <span style="color: #FF8C00 !important">**yookwi**</span>가 저에게 MST 쓰는 문제 같으니 G번을 잡아보라고 줬지만, 20분동안 별 진전이 없었습니다. 다시 <span style="color: #FF8C00 !important">**yookwi**</span>에게 G번을 넘기고 이때까지 저와 <span style="color: #a0a !important">**motsuni04**</span>는 K번의 상한이 생각보다 널널하다는 점을 관찰해 풀이를 대충 알아냈고, 코드까지 공책에 적었지만 <span style="color: #FF8C00 !important">**yookwi**</span>가 맞왜틀을 하며 테스트 케이스를 만들어주는 데 올인했습니다. 팀노트를 대회 하루 전 <span style="color: #FF8C00 !important">**yookwi**</span>가 정말 대충 만들어왔는데, 정말 운이 좋게도 단절점/단절선 알고리즘이 있어서 유용하게 사용했습니다. 코드를 자잘하게 수정하면서 7번의 시도 끝에 결국 G를 풀고 스코어보드를 보니 30위 안에 들어서 본선 진출이 확정되었습니다. 너무 짜릿했습니다.
 
 이후 마침 근처에서 예선을 치른 AlKon 회장 **dldyou**님과 <span style="color: #a0a !important">**pizzaroot**</span> 팀이랑 저녁식사를 했습니다. 양식집이었는데, 피자와 파스타를 정말 맛있게 먹었습니다. 그 다음날 있을 정보보안 동아리 대회에서 출제를 하시게 된 **dldyou**님과 많이 바쁘셨던 **javago**님은 먼저 가시고, 나머지는 보드게임 카페에 가서 능지대결을 펼쳤습니다.
 
@@ -104,19 +104,19 @@ BusTaeWarJo라는 팀명은 AlKon 회장님이 정해주신 대회 접수 마감
 
 **J (01:50) +2**
 
-<span style="color: #FF8C00 !important">**yookwi**</span>와 <span style="color: #a0a !important">**motsuni04**</span> 둘이 풀었습니다. 맞왜틀을 하면서 많이 고생했던 것으로 기억합니다. 저는 E를 풀었고, <span style="color: #FF8C00 !important">**yookwi**</span>에게 풀이를 설명했지만, 처음에 다익스트라를 쓸 생각을 해서 시간 안에 안 돌거라고 빠꾸를 먹고, 나중에 다시 수학으로 구할 수 있다고 했지만, Convex Hull까지 구현에 동원하기 무서워 미뤄두기로 했습니다.
+<span style="color: #FF8C00 !important">**yookwi**</span>와 <span style="color: #a0a !important">**motsuni04**</span> 둘이 풀었습니다. 맞왜틀을 하면서 많이 고생했던 것으로 기억합니다. 저는 E를 풀었고, <span style="color: #FF8C00 !important">**yookwi**</span>에게 풀이를 설명했지만, 처음에 다익스트라를 쓸 생각을 해서 시간 안에 안 돌거라고 빠꾸를 먹고, 나중에 다시 각 꼭짓점에서 S, T까지의 최단 경로를 수학으로 구할 수 있다고 말했지만, Convex Hull까지 구현에 동원하기가 쉽지 않아 2빠꾸를 먹고 미뤄두기로 했습니다.
 
 **F (03:01) +2**
 
-<span style="color: #FF8C00 !important">**yookwi**</span>의 오더로 저와 <span style="color: #a0a !important">**motsuni04**</span>가 손으로 직접 $n$이 작을 때를 직접 해보면서 규칙성을 찾아봤습니다. 처음에는 귀납적으로 증명할 수 있나 했지만, $0.7(n+1)^2 - 0.7n^2 = 1.4n + 0.7$, $n$번째가 정렬된 상태로 $n+1$ 페어를 추가해도 제한 안에 옮길 수 없다는 것을 확인했습니다. <span style="color: #a0a !important">**motsuni04**</span>가 꽤 적은 횟수로 정렬하는 데 성공했지만, 일관적으로 풀 수 없어서 한참을 더 잡고 있었고, 제가 기적적으로 지그재그로 원소 $1$하나를 $1$번 인덱스에 갖다넣으면 이쁜 모양이 나오는 것을 관찰해서 <span style="color: #FF8C00 !important">**yookwi**</span>에게 넘겨주었습니다. <span style="color: #FF8C00 !important">**yookwi**</span>가 생각보다 빠르게 구현했지만, WA를 받았습니다. 셋이서 한참 디버깅을 한 후에, <span style="color: #FF8C00 !important">**yookwi**</span>가 결국 문제점을 찾았습니다. swap 연산을 하기 전에 출력했어야 했지만, swap 연산 이후에 출력을 해버려서 틀렸던 것이었습니다. 코드 두 줄의 순서를 바꿔서 AC를 받았습니다. 생각보다 종이에 쓸 게 많아서 풀고나서 손이 조금 아팠습니다.
+<span style="color: #FF8C00 !important">**yookwi**</span>의 오더로 저와 <span style="color: #a0a !important">**motsuni04**</span>가 손으로 직접 $n$이 작을 때를 직접 해보면서 규칙성을 찾아봤습니다. 처음에는 귀납적으로 증명할 수 있나 했지만, $0.7(n+1)^2 - 0.7n^2 = 1.4n + 0.7$, $n$번째가 정렬된 상태로 $n+1$ 페어를 추가해도 제한 안에 옮길 수 없다는 것을 확인했습니다. <span style="color: #a0a !important">**motsuni04**</span>가 꽤 적은 횟수로 정렬하는 데 성공했지만, 일관적으로 풀 수 없어서 한참을 더 잡고 있었고, 제가 기적적으로 지그재그로 원소 $1$하나를 $1$번 인덱스에 갖다넣으면 이쁜 모양이 나오는 것을 관찰해서 <span style="color: #FF8C00 !important">**yookwi**</span>에게 넘겨주었습니다. <span style="color: #FF8C00 !important">**yookwi**</span>가 생각보다 빠르게 구현했지만, WA를 받았습니다. 셋이서 한참 디버깅을 한 후에, <span style="color: #FF8C00 !important">**yookwi**</span>가 결국 문제점을 찾았습니다. swap 연산을 하기 전에 과정을 출력했어야 하지만, swap 연산 이후에 출력을 해버려서 틀렸던 것이었습니다. 코드 두 줄의 순서만 바꿔서 AC를 받았습니다. 생각보다 종이에 쓸 게 많아서 풀고나서 손이 조금 아팠습니다.
 
-이후로는 계속 C를 열심히 잡다가 TLE가 나올 각오로 제출해보았지만 WA를 받았고, E에 미련이 남은 제가 별찍기 코드를 제출해서 WA를 받고 5솔브 38위라는 조금 아쉬운 성적으로 대회가 종료되었습니다.
-
-<img src="/images/icpc-2024-seoul/IMG_6861.JPG">
-
-온사이트 대회 최고의 관람 포인트는 스코어보드 오픈이 아닐까 싶습니다. 저희 팀이 나올 때만 빼고 짜릿했습니다.
+이후로는 계속 C를 열심히 잡다가 TLE가 나올 각오로 제출해보았지만 신기하게 WA를 받았고, E에 미련이 남은 제가 별찍기 코드를 제출해서 WA를 받고 5솔브 38위라는 조금 아쉬운 성적으로 대회가 종료되었습니다.
 
 <img src="/images/icpc-2024-seoul/Screenshot 2024-11-27 at 3.58.58 AM.png">
+
+온사이트 대회 최고의 관람 포인트는 스코어보드 오픈이 아닐까 싶습니다. 저희 팀이 나올 때만 빼고 역전과 재밌는 포인트들이 많이 나와 박수와 환호가 터져나왔던 것 같습니다.
+
+<img src="/images/icpc-2024-seoul/IMG_6861.JPG">
 
 풀이 세션과 Tech Talk 등 남은 일정들이 마무리되고, 같이 저녁식사를 하고 각자 집 가는 길이 달라서 헤어졌습니다. 마침 블루 아카이브 축제가 끝나는 시간과 겹쳐서... 매우 지옥같은 킨텍스 교통을 맛볼 수 있었습니다.
 
