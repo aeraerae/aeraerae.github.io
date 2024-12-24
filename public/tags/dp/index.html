@@ -10,6 +10,13 @@
 <meta name="description" content="blog">
 <meta name="author" content="Aerae">
 <link rel="canonical" href="http://localhost:1313/tags/dp/">
+
+<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="apple-mobile-web-app-title" content="Aerae.zip" />
+<link rel="manifest" href="/site.webmanifest" />
 <link crossorigin="anonymous" href="/assets/css/stylesheet.fc220c15db4aef0318bbf30adc45d33d4d7c88deff3238b23eb255afdc472ca6.css" integrity="sha256-/CIMFdtK7wMYu/MK3EXTPU18iN7/MjiyPrJVr9xHLKY=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
@@ -194,7 +201,7 @@ $1$초부터 $T$초까지 매 초 $1$번 나무 또는 $2$번 나무에서 하�
 풀이 제한을 잘 살펴봅시다. $T \leq 1 000$, $W \leq 30$, 나무가 $2$그루 있으니, dp[현재 시간][현재 위치][현재까지 이동한 횟수]로 3차원 DP를 해볼 수 있을 것 같습니다.
 우선, DP 테이블에 초깃값들을 채워봅시다. $t$초에 자두가 떨어진 나무의 위치를 $P_t$라고 하면, $1$초에 $1$번 나무에서 시작하니, $DP_{1, 1, 0}=[P_i = 1]$이 되겠고 (편의상 $[c]$는 조건 $c$가 참이면 $1$, 거짓이면 $0$ 값을 가진다고 약속합시다), $1$초에 자두가 떨어지기 전 $2$번 나무로 움직였다면, $DP_{1, 2, 1}=[P_i = 2]$가 됩니다....</p>
   </div>
-  <footer class="entry-footer"><span title='2024-09-13 00:03:28 +0900 KST'>9월 13, 2024</span>&nbsp;·&nbsp;3 분&nbsp;·&nbsp;Aerae</footer>
+  <footer class="entry-footer"><span title='2024-09-13 00:03:28 +0900 KST'>9월 13, 2024</span>&nbsp;·&nbsp;3분&nbsp;·&nbsp;Aerae</footer>
   <a class="entry-link" aria-label="post link to BOJ 2240 - 자두나무" href="http://localhost:1313/posts/boj-2240/"></a>
 </article>
     </main>
