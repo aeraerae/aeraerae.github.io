@@ -1,6 +1,6 @@
 baseURL: "https://aeraerae.github.io/"
-languageCode: "ko"
-title: aerae
+defaultContentLanguage: ko
+title: Aerae.zip
 paginate: 5
 theme: PaperMod
 
@@ -80,9 +80,9 @@ params:
         url: tags
 
   homeInfoParams:
-    Title: "aerae's blog"
+    Title: "Aerae's blog"
     Content: >
-      - aerae입니다, 반갑습니다.
+      - Aerae입니다, 반갑습니다.
 
       - 컴퓨터공학을 전공하고 있고, 취미로 알고리즘을 공부합니다.
 

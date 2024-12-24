@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="ko" dir="auto">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>BOJ 17251 - 힘 겨루기 | aerae</title>
+<title>BOJ 17251 - 힘 겨루기 | Aerae.zip</title>
 <meta name="keywords" content="ps, 누적 합, prefix sum, 백준, boj, 17252">
 <meta name="description" content="문제 링크
 (2024/9/12 기준) Silver I
@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/boj-17251/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/posts/boj-17251/">
 <noscript>
     <style>
         #theme-toggle,
@@ -149,7 +149,7 @@ h2 {
   ],
   "articleBody": "문제 링크\n(2024/9/12 기준) Silver I\n문제 읽기 $N$명의 사람들이 일렬로 서 있습니다. 왼쪽에서 $i$ (단, $1 \\leq i \u003c N$)번째 사람까지는 홍팀, 나머지는 청팀으로, 총 $N-1$가지 방법으로 팀을 나눌 수 있습니다. 이때, 각 팀에서 힘이 가장 센 사람이 힘을 겨루어, 두 사람 중 힘이 더 센 사람이 포함된 팀이 승리하게 됩니다. (무승부일 때는 어느 팀도 승리하지 않습니다.) 둘 중 어느 팀이 승리할 확률이 더 높을까요?\n풀이 일단, 전체 경우의 수는 $N-1$로 고정되어 있습니다. 확률을 굳이 구하지 않고, 어느 팀이 더 많이 이겼는 지만 확인하면 됩니다.\n관찰을 조금 해봅시다. 홍팀은 $1$번째 사람부터, $i$번째 사람까지 포함합니다. 청팀은 $i+1$번째 사람부터 $N$번째 사람을 포함합니다. $i$를 조금씩 옮겨가다보면, $1$번째 사람은 반드시 홍팀에, $N$번째 사람은 반드시 청팀에 포함된다는 사실을 알 수 있습니다. 그렇다면, $1$번째 사람부터 $i$번째 사람까지 홍팀에 포함했을 때, 홍팀에서 가장 힘이 센 사람의 힘을 $R_i$, 청팀에서 가장 힘이 센 사람의 힘을 $B_i$라고 합시다. $P_k$을 $k$번째 사람의 힘이라고 하면, $R_i$는 $R_1 = P_1$, $R_i = \\textrm{max}(R_{i-1}, P_{i})$가 되고, 비슷한 방법으로 $B_{n-1} = P_n$, $B_i = \\textrm{max}(B_{i+1}, P_{i+1})$가 됩니다. 이는 누적합을 통해 각각 $\\mathcal{O}(N)$에 구할 수 있습니다.\n이제, $i$에 $1$부터 $N-1$까지 넣어보면서 청팀 또는 홍팀이 이기는 경우를 세어주면 됩니다. 역시 시간복잡도는 $\\mathcal{O}(N)$입니다. 청팀과 홍팀 모두 이기는 경우의 수가 같을 땐, X를 출력해야 함에 유의합시다.\n코드 use std::{fmt::Write, io::{stdin, Read}, str::SplitWhitespace}; fn main() { let mut buf = String::new(); let mut out = String::new(); stdin().read_to_string(\u0026mut buf).unwrap(); let mut scan = Scanner::new(buf.split_whitespace()); //let tc = scan.next(); //for i in 0..tc { solve(\u0026mut scan, \u0026mut out, 0); //} println!(\"{out}\"); } // overflow, edge case, and 1 based index? fn solve\u003c'a\u003e(scan: \u0026mut Scanner\u003c'a, SplitWhitespace\u003c'a\u003e\u003e, out: \u0026mut String, _tc: usize) { let n: usize = scan.next(); let mut a = vec![0; n]; for i in 0..n { a[i] = scan.next::\u003ci32\u003e(); } let mut r = vec![0; n - 1]; r[0] = a[0]; for i in 1..(n - 1) { r[i] = if r[i - 1] \u003c a[i] { a[i] } else { r[i - 1] }; } let mut b = vec![0; n - 1]; b[n - 2] = a[n - 1]; for i in (0..(n - 2)).rev() { b[i] = if b[i + 1] \u003c a[i + 1] { a[i + 1] } else { b[i + 1] }; } let mut rw = 0; let mut bw = 0; for i in 0..(n - 1) { if r[i] \u003e b[i] { rw += 1; } if r[i] \u003c b[i] { bw += 1; } } writeln!(out, \"{}\", if rw \u003e bw { 'R' } else if rw \u003c bw { 'B' } else { 'X' }).ok(); } struct Scanner\u003c'a, I: Iterator\u003cItem = \u0026'a str\u003e\u003e { iter: I, } impl\u003c'a, I: Iterator\u003cItem = \u0026'a str\u003e\u003e Scanner\u003c'a, I\u003e { fn new(from: I) -\u003e Self { Self { iter: from } } fn next\u003cT: std::str::FromStr\u003e(\u0026mut self) -\u003e T { self.iter.next().unwrap().parse().ok().unwrap() } } 핵심은 $R_i$와 $B_i$를 구하는 과정인데요, 구간의 시작과 끝인 $1$, $i$, $i+1$, $N$ 중 고정된 값은 $1$과 $N$이므로, $R_i$는 정방향으로, $B_i$는 역방향으로 누적하며 최댓값을 채워주었습니다.\n후기 조금은 아이디어성의 문제라고 생각했지만, 누적합을 응용해 구간의 최댓값/최솟값을 관리하는 방법이 기초 문제에 있다고 하네요…\n+ 놀랍게도 브루트포스를 살짝만 최적화해도 풀린다고 합니다. 충격!\n",
   "wordCount" : "508",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "http://localhost:1313/images/papermod-cover.png","datePublished": "2024-09-12T23:20:14+09:00",
   "dateModified": "2024-09-12T23:20:14+09:00",
   "author":{
@@ -162,7 +162,7 @@ h2 {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "aerae",
+    "name": "Aerae.zip",
     "logo": {
       "@type": "ImageObject",
       "url": "http://localhost:1313/favicon.ico"
@@ -187,7 +187,7 @@ h2 {
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="aerae (Alt + H)">aerae</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Aerae.zip (Alt + H)">Aerae.zip</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -234,17 +234,17 @@ h2 {
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">홈</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       BOJ 17251 - 힘 겨루기
     </h1>
-    <div class="post-meta"><span title='2024-09-12 23:20:14 +0900 KST'>September 12, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Aerae&nbsp;|&nbsp;<a href="https://github.com/aeraerae/aeraerae.github.io/tree/main/content/posts/boj-17251.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2024-09-12 23:20:14 +0900 KST'>9월 12, 2024</span>&nbsp;·&nbsp;3 분&nbsp;·&nbsp;Aerae&nbsp;|&nbsp;<a href="https://github.com/aeraerae/aeraerae.github.io/tree/main/content/posts/boj-17251.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -347,12 +347,12 @@ h2 {
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://localhost:1313/posts/boj-2240/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>BOJ 2240 - 자두나무</span>
   </a>
   <a class="next" href="http://localhost:1313/posts/boj-11729/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>BOJ 11729 - 3&#43;1 하노이 탑</span>
   </a>
@@ -363,7 +363,7 @@ h2 {
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">aerae</a></span> · 
+        <span>&copy; 2024 <a href="http://localhost:1313/">Aerae.zip</a></span> · 
 
     <span>
         Powered by

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="ko" dir="auto">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>BOJ 11729 - 3&#43;1 하노이 탑 | aerae</title>
+<title>BOJ 11729 - 3&#43;1 하노이 탑 | Aerae.zip</title>
 <meta name="keywords" content="ps, 재귀, 하노이, 백준, boj, 11729">
 <meta name="description" content="문제 링크
 (2024/9/10 기준) Gold III
@@ -22,7 +22,7 @@ A에 있는 원판 $1$을 B로 옮긴다. A에 있는 원판 $2$를 D로 옮긴�
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/boj-11729/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/posts/boj-11729/">
 <noscript>
     <style>
         #theme-toggle,
@@ -152,7 +152,7 @@ A에 있는 원판 $1$을 B로 옮긴다. A에 있는 원판 $2$를 D로 옮긴�
   ],
   "articleBody": "문제 링크\n(2024/9/10 기준) Gold III\n문제 읽기 하노이 탑 변형 문제입니다. 대신 기둥 D가 추가되었고, 기둥 D에 한 번 옮기면 다시 뺄 수 없습니다. 이외에는 기존 하노이 탑과 규칙이 동일합니다. $N$개의 원판을 기둥 D에 옮기는 최소 이동 횟수와, 그러한 이동 방법을 하나 찾아봅시다.\n예시 편의를 위해 초기 상태에서의 위로부터 $N$번째 원판을 원판 $N$이라고 하겠습니다. $N=2$일 때,\nA에 있는 원판 $1$을 B로 옮긴다. A에 있는 원판 $2$를 D로 옮긴다. B에 있는 원판 $1$을 D로 옮긴다. 이렇게 최소 이동 횟수 $3$회로 모든 원판을 기둥 D로 옮길 수 있습니다.\n풀이 Base Case $N=1$인 경우, 바로 기둥 D로 옮기면 최소가 됩니다.\n$N=2$인 경우, 위 예시대로 기둥 D로 옮길 수 있고, 사용하는 기둥의 순서가 바뀌어도 이는 이동 횟수는 바뀌지 않으므로, 최소가 됩니다.\nStep $n \\geq 3$인 경우, $1$번 원판부터 $N-2$번 원판을 기둥 D를 임의의 기둥으로 옮겨서 $N-2$인 경우를 만들 수 있습니다. (편의를 위해 기둥 C에 옮겼다고 합시다.) 그러면, 기둥 A에는 원판 $N$과 $N-1$이 남게되고, 이 두 원판을 기둥 D로 옮긴 후, 기둥 C에서 기둥 D로 $N-2$개의 원판을 옮기면 됩니다.\n만약, 원판 $N$ 하나만 남기고 $1$부터 $N-1$을 옮긴다고 해봅시다. 그렇다면 $N-1$개의 원반을 가지고 반복하고, 더 많은 횟수로 옮겨야 합니다.\n또한, 원판을 $3$개 이상 남기려고 하면, 하노이의 탑 규칙을 만족하면서 남은 원판들을 기둥 D로 옮길 수 없습니다. 따라서 $2$개의 원판을 남기고, (단, $N=3$일 때에는 하나밖에 남을 수 없습니다.) 나머지 $N-2$개의 원판을 기존 하노이 탑처럼 옮겨주면 최적해가 됩니다 $_\\blacksquare$\n코드 use std::{fmt::Write, io::{stdin, Read}, str::SplitWhitespace}; fn main() { let mut buf = String::new(); let mut out = String::new(); stdin().read_to_string(\u0026mut buf).unwrap(); let mut scan = Scanner::new(buf.split_whitespace()); //let tc = scan.next(); //for _ in 0..tc { solve(\u0026mut scan, \u0026mut out); //} println!(\"{out}\"); } // overflow, edge case, and 1 based index? fn solve\u003c'a\u003e(scan: \u0026mut Scanner\u003c'a, SplitWhitespace\u003c'a\u003e\u003e, out: \u0026mut String) { let n: usize = scan.next(); let mut c = 0; res(n, 'A', 'B', 'C', out, \u0026mut c); println!(\"{c}\"); } fn res(n: usize, a: char, b: char, c: char, out: \u0026mut String, cnt: \u0026mut usize) { if n == 1 { writeln!(out, \"{a} D\").ok(); *cnt += 1; return; } if n == 2 { writeln!(out, \"{a} {b}\").ok(); writeln!(out, \"{a} D\").ok(); writeln!(out, \"{b} D\").ok(); *cnt += 3; return; } hanoi(n - 2, a, c, b, out); *cnt += 2_usize.pow(n as u32 - 2) - 1; writeln!(out, \"{a} {b}\").ok(); writeln!(out, \"{a} D\").ok(); writeln!(out, \"{b} D\").ok(); *cnt += 3; res(n - 2, c, b, a, out, cnt); } fn hanoi(n: usize, a: char, b: char, c: char, out: \u0026mut String) { if n == 1 { writeln!(out, \"{a} {b}\").ok(); return; } hanoi(n - 1, a, c, b, out); writeln!(out, \"{a} {b}\").ok(); hanoi(n - 1, c, b, a, out); } struct Scanner\u003c'a, I: Iterator\u003cItem = \u0026'a str\u003e\u003e { iter: I, } impl\u003c'a, I: Iterator\u003cItem = \u0026'a str\u003e\u003e Scanner\u003c'a, I\u003e { fn new(from: I) -\u003e Self { Self { iter: from } } fn next\u003cT: std::str::FromStr\u003e(\u0026mut self) -\u003e T { self.iter.next().unwrap().parse().ok().unwrap() } } 변형 하노이를 해결하는 과정에 일반 하노이의 이동 순서가 필요하므로, 재귀함수를 두 개 만들었습니다.\n후기 도널드 커누스의 \u003c구체 수학(Concrete Mathematics)\u003e을 읽어본 적이 있었는데, 여기서 하노이 탑을 심도있게 다뤘습니다. 읽어보길 잘 했네요.\n",
   "wordCount" : "498",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "http://localhost:1313/images/papermod-cover.png","datePublished": "2024-09-10T14:53:11+09:00",
   "dateModified": "2024-09-10T14:53:11+09:00",
   "author":{
@@ -165,7 +165,7 @@ A에 있는 원판 $1$을 B로 옮긴다. A에 있는 원판 $2$를 D로 옮긴�
   },
   "publisher": {
     "@type": "Organization",
-    "name": "aerae",
+    "name": "Aerae.zip",
     "logo": {
       "@type": "ImageObject",
       "url": "http://localhost:1313/favicon.ico"
@@ -190,7 +190,7 @@ A에 있는 원판 $1$을 B로 옮긴다. A에 있는 원판 $2$를 D로 옮긴�
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="aerae (Alt + H)">aerae</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Aerae.zip (Alt + H)">Aerae.zip</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -237,17 +237,17 @@ A에 있는 원판 $1$을 B로 옮긴다. A에 있는 원판 $2$를 D로 옮긴�
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">홈</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       BOJ 11729 - 3&#43;1 하노이 탑
     </h1>
-    <div class="post-meta"><span title='2024-09-10 14:53:11 +0900 KST'>September 10, 2024</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Aerae&nbsp;|&nbsp;<a href="https://github.com/aeraerae/aeraerae.github.io/tree/main/content/posts/boj-11729.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2024-09-10 14:53:11 +0900 KST'>9월 10, 2024</span>&nbsp;·&nbsp;3 분&nbsp;·&nbsp;Aerae&nbsp;|&nbsp;<a href="https://github.com/aeraerae/aeraerae.github.io/tree/main/content/posts/boj-11729.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -382,12 +382,12 @@ $N=2$인 경우, 위 예시대로 기둥 D로 옮길 수 있고, 사용하는 �
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://localhost:1313/posts/boj-17251/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>BOJ 17251 - 힘 겨루기</span>
   </a>
   <a class="next" href="http://localhost:1313/posts/boj-2457/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>BOJ 2457 - 공주님의 정원</span>
   </a>
@@ -398,7 +398,7 @@ $N=2$인 경우, 위 예시대로 기둥 D로 옮길 수 있고, 사용하는 �
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">aerae</a></span> · 
+        <span>&copy; 2024 <a href="http://localhost:1313/">Aerae.zip</a></span> · 
 
     <span>
         Powered by

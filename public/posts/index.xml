@@ -1,18 +1,27 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Posts on aerae</title>
+    <title>Posts on Aerae.zip</title>
     <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on aerae</description>
+    <description>Recent content in Posts on Aerae.zip</description>
     <image>
-      <title>aerae</title>
+      <title>Aerae.zip</title>
       <url>http://localhost:1313/images/papermod-cover.png</url>
       <link>http://localhost:1313/images/papermod-cover.png</link>
     </image>
     <generator>Hugo -- 0.128.0</generator>
     <language>ko</language>
-    <lastBuildDate>Fri, 15 Nov 2024 18:12:10 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 27 Nov 2024 00:54:24 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2024 ICPC Seoul Regional 후기</title>
+      <link>http://localhost:1313/posts/icpc-2024-seoul/</link>
+      <pubDate>Wed, 27 Nov 2024 00:54:24 +0900</pubDate>
+      <guid>http://localhost:1313/posts/icpc-2024-seoul/</guid>
+      <description>Intro 원래는 UCPC 2024에 도전했다가 뜨거운 실패의 맛을 보고, 팀도 깨져서 올해 ICPC는 포기하고 팀 대회는 군대나 다녀와서 시작할 생각이었습니다. 하지만&amp;hellip;
+우연히 평소 알고만 지내던 AlKon 동아리 2학년 motsuni04에게 연락이 왔습니다. (이 때는 몰랐지만) 작년 ICPC 팀원이었던 s6xybr8in님이 군입대를 하게 되셔서 제가 들어오게 되었습니다. 든든한 버스기사 yookwi도 합류해서 팀이 결성되었습니다!
+팀연습은 보통 업다운 랜디, USACO나 ICPC 기출셋, Codeforces Div.2 등등 다양하게 하였고, 세종대 pizzaroot랑 팀원 분들도 가끔 같이 연습했었습니다. 공강이 겹치는 시간에 PC방에서 같이 Codeforces 버추얼을 쳤던 기억도 나네요 ㅋㅋ</description>
+    </item>
     <item>
       <title>이분 탐색(Binary Search)과 활용</title>
       <link>http://localhost:1313/posts/binary-search/</link>

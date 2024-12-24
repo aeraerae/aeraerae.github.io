@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" dir="auto">
+<html lang="ko" dir="auto">
 
 <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>BOJ 2457 - 공주님의 정원 | aerae</title>
+<title>BOJ 2457 - 공주님의 정원 | Aerae.zip</title>
 <meta name="keywords" content="ps, 그리디, greedy, 정렬, sortings, 백준, boj, 5647">
 <meta name="description" content="문제 링크
 (2024/9/9 기준) Gold III
@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/boj-2457/">
+<link rel="alternate" hreflang="ko" href="http://localhost:1313/posts/boj-2457/">
 <noscript>
     <style>
         #theme-toggle,
@@ -149,7 +149,7 @@ h2 {
   ],
   "articleBody": "문제 링크\n(2024/9/9 기준) Gold III\n문제 읽기 꽃이 $N$종류 주어집니다. 각각의 꽃은 피는 날과 지는 날이 각각 $MM\\ DD$꼴로 주어지고, 최소한의 종류의 꽃으로 $3$월 $1$일부터 $11$월 $31$일까지 매일 적어도 한 종류의 꽃이 피어있도록 배치해봅시다. 단, $d$일에 꽃이 지는 경우, $d$일에는 꽃이 피어있지 않았음에 유의합시다.\n예시 4 1 1 5 31 1 1 6 30 5 15 8 31 6 10 12 10 예제 1입니다. $4$종류의 꽃이 주어졌고, 이 중 $1$월 $1$일부터 $6$월 $30$일까지 피는 꽃과, $6$월 $10$일부터 $12$월 $10$일에 지는 꽃 $2$개를 선택하여 조건을 만족시킬 수 있습니다.\n풀이 먼저, $MM\\ DD$꼴로 주어지는 입력을 편하게 다루기 위해, $MM\\ DD$가 그 해의 몇 번째 날인지로 바꿔줍시다. 예를 들어, $1\\ 1$은 $1$이 되고, $5\\ 31$은 $151$이 됩니다. 이는 각 월의 일 수를 더하여 얻을 수 있습니다. 편의를 위해 $i$번째 꽃의 피는 날을 $s_i$, 지는 날을 $e_i$라 합시다.\n임의의 날짜 $d$에 대해서, $d$일에 꽃이 피어있기 위해서는 $s_i \\leq d \u003c e_j$ (단, $1 \\leq i, j \\leq n$)를 만족해야 합니다.\n가장 간단하게, $n=1$인 상황을 가정해봅시다. $s_1 \\leq d \u003c e_1$을 만족한다면 $1$개의 꽃을 선택하여 조건을 만족시킬 수 있습니다.\n$n \u003e 1$일 경우, $s_i\u003ee_j$ (단, $i \\neq j$)를 만족한다면, 두 구간을 합칠 수 있습니다. 예를 들어, 구간 $[2, 5)$와 $[4, 8)$을 합쳐 구간 $[2, 8)$을 만들 수 있고, 이 구간을 합치는 연산에 대해서는 교환법칙과 결합법칙이 성립합니다.\n모든 구간을 합쳐보고, 문제 조건에서 요구하는 구간인 $[60, 334)$를 덮을 수 있는지 확인하면, 모든 꽃을 배치해도 문제 조건을 만족할 수 없는 경우를 걸러낼 수 있습니다.\n이어서, 최소한의 종류의 꽃으로 구간을 덮을 방법을 찾아봅시다.\n두 구간 $[s_1, e_1)$, $[s_2, e_2)$중 짧거나 같은 구간이 합쳤을 때 완전히 덮히는 경우를 생각해봅시다. 즉, $s_1 \\leq s_2$이고, $e_1 \\geq e_2$라면, 두 구간을 합쳐도 $[s_1, e_1)$입니다. 교환법칙과 결합법칙이 성립하므로, 적절히 구간을 합쳐서 최소 개수로 덮는 구간과 그 외의 구간들로 나눌 수 있고, 최소 개수로 덮는 구간에는 결국 구간끼리 완전히 포개지는 경우가 없어야 함을 통해 알 수 있습니다.\n우선, 시간순으로 펼쳐보기 위해 $(s_i, e_i)$를 정렬합시다. $d$는 첫 날인 $60$이 되고, $s_i \\leq d$이고 $d \u003c e_i$인 구간만을 선택할 수 있습니다. 만약, 임의의 $i$, $j$ (단, $1 \\leq i \u003c j \\leq n$)에 대하여 $e_i \\leq e_j$이므로, 구간 $[s_i, e_i)$는 전체 구간 $[60, e_j)$ 안에 포함돼서 겹칩니다. 따라서, $s_i \\leq d$를 만족하면서 $e_i$가 최대가 되는 구간을 그리디하게 고르는 것이 최적이 됩니다. 같은 방식으로, $d = e_i$로 바꾼 후 귀납적으로 문제를 해결할 수 있습니다.\n소스코드 (Rust) use std::{fmt::Write, io::{stdin, Read}, str::SplitWhitespace}; fn main() { let mut buf = String::new(); let mut out = String::new(); stdin().read_to_string(\u0026mut buf).unwrap(); let mut scan = Scanner::new(buf.split_whitespace()); //let tc = scan.next(); //for _ in 0..tc { solve(\u0026mut scan, \u0026mut out); //} println!(\"{out}\"); } // overflow, edge case, and 1 based index? fn solve\u003c'a\u003e(scan: \u0026mut Scanner\u003c'a, SplitWhitespace\u003c'a\u003e\u003e, out: \u0026mut String) { let n: usize = scan.next(); let mut a = Vec::with_capacity(n); for _ in 0..n { let sm: i32 = scan.next(); let sd: i32 = scan.next(); let em: i32 = scan.next(); let ed: i32 = scan.next(); a.push((get_day(sm, sd), get_day(em, ed))); } let mut s = get_day(3, 1); let mut e = 0; a.sort(); let mut flag = true; let mut c = 1; for i in 0..a.len() { if a[i].0 \u003c= s { if e \u003c a[i].1 { e = a[i].1; } } else { s = e; e = 0; c += 1; if s \u003c a[i].0 { flag = false; break; } if e \u003c a[i].1 { e = a[i].1; } } if e \u003e get_day(11, 30) { break; } } if e \u003c= get_day(11, 30) { flag = false; } writeln!(out, \"{}\", if flag { c } else { 0 }).ok(); } fn get_day(m: i32, d: i32) -\u003e i32 { let mut ret = 31 * (m - 1); for i in 1..m { if i == 2 { ret -= 3; } if i == 4 || i == 6 || i == 9 || i == 11 { ret -= 1; } } ret + d } struct Scanner\u003c'a, I: Iterator\u003cItem = \u0026'a str\u003e\u003e { iter: I, } impl\u003c'a, I: Iterator\u003cItem = \u0026'a str\u003e\u003e Scanner\u003c'a, I\u003e { fn new(from: I) -\u003e Self { Self { iter: from } } fn next\u003cT: std::str::FromStr\u003e(\u0026mut self) -\u003e T { self.iter.next().unwrap().parse().ok().unwrap() } } get_day()함수를 통하여 $MM\\ DD$꼴의 입력을 $d$ 꼴로 바꿔주었고, 각 구간들을 정렬한 후, $s_i \u003c d \u003c e_i$를 만족하며 $e_i$가 최대가 되는 $i$를 찾은 후, $d$를 $e_i$로 업데이트 하며 합친 구간의 개수들을 더해주었습니다.\n$N$개의 꽃을 정렬하는 데에 $\\mathcal{O}(N\\lg N)$, 순회하는 데에 $\\mathcal{O}(N)$이고, 총 시간복잡도는 $\\mathcal{O}(N\\lg N)$입니다.\n후기 전형적인 그리디 유형이라 어느정도 직관이 있으신 분들은 쉽게 풀었을 수도 있는 문제입니다. 부등호를 포함하여 예외처리가 조금 어려웠지만 재밌었습니다.\n",
   "wordCount" : "744",
-  "inLanguage": "en",
+  "inLanguage": "ko",
   "image": "http://localhost:1313/images/papermod-cover.png","datePublished": "2024-09-09T14:41:51+09:00",
   "dateModified": "2024-09-09T14:41:51+09:00",
   "author":{
@@ -162,7 +162,7 @@ h2 {
   },
   "publisher": {
     "@type": "Organization",
-    "name": "aerae",
+    "name": "Aerae.zip",
     "logo": {
       "@type": "ImageObject",
       "url": "http://localhost:1313/favicon.ico"
@@ -187,7 +187,7 @@ h2 {
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="aerae (Alt + H)">aerae</a>
+            <a href="http://localhost:1313/" accesskey="h" title="Aerae.zip (Alt + H)">Aerae.zip</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -234,17 +234,17 @@ h2 {
 
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">홈</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       BOJ 2457 - 공주님의 정원
     </h1>
-    <div class="post-meta"><span title='2024-09-09 14:41:51 +0900 KST'>September 9, 2024</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Aerae&nbsp;|&nbsp;<a href="https://github.com/aeraerae/aeraerae.github.io/tree/main/content/posts/boj-2457.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+    <div class="post-meta"><span title='2024-09-09 14:41:51 +0900 KST'>9월 9, 2024</span>&nbsp;·&nbsp;4 분&nbsp;·&nbsp;Aerae&nbsp;|&nbsp;<a href="https://github.com/aeraerae/aeraerae.github.io/tree/main/content/posts/boj-2457.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
 
 </div>
   </header> <div class="toc">
     <details >
         <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
+            <span class="details">목차</span>
         </summary>
 
         <div class="inner"><ul>
@@ -380,12 +380,12 @@ h2 {
     </ul>
 <nav class="paginav">
   <a class="prev" href="http://localhost:1313/posts/boj-11729/">
-    <span class="title">« Prev</span>
+    <span class="title">« 이전 페이지</span>
     <br>
     <span>BOJ 11729 - 3&#43;1 하노이 탑</span>
   </a>
   <a class="next" href="http://localhost:1313/posts/boj-23048/">
-    <span class="title">Next »</span>
+    <span class="title">다음 페이지 »</span>
     <br>
     <span>BOJ 23048 - 자연수 색칠하기</span>
   </a>
@@ -396,7 +396,7 @@ h2 {
     </main>
     
 <footer class="footer">
-        <span>&copy; 2024 <a href="http://localhost:1313/">aerae</a></span> · 
+        <span>&copy; 2024 <a href="http://localhost:1313/">Aerae.zip</a></span> · 
 
     <span>
         Powered by
