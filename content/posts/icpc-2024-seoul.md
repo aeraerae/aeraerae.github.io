@@ -100,7 +100,7 @@ BusTaeWarJo라는 팀명은 AlKon 회장님이 정해주신 대회 접수 마감
 
 **L (01:03)**
 
-이 문제도 처음에는 제가 잡았다가, 상위권 팀이 너무 빨리 풀어버려서, 새로운 삼각형을 만들 수 있는 격자점들이 $\gcd (\vert x_i - x_j \vert, \vert y_i - y_j \vert)$의 배수만 가능하다는 간단한 관찰과 함께 <span style="color: #a0a !important">**motsuni04**</span>에게 넘겨주었습니다. 구현을 잘 해서 다행히 한 번에 맞았습니다. 나중에 들어보니 <span style="color: #FF8C00 !important">**yookwi**</span>가 풀이를 대부분 완성했다고 합니다.
+이 문제도 처음에는 제가 잡았다가, 상위권 팀이 너무 빨리 풀어버려서, 새로운 삼각형을 만들 수 있는 격자점들이 $\gcd (\vert x_i - x_j \vert, \vert y_i - y_j \vert)$의 배수만 가능하다는 당연한 관찰과 함께 <span style="color: #a0a !important">**motsuni04**</span>에게 넘겨주었습니다. 구현을 잘 해서 다행히 한 번에 맞았습니다. 나중에 들어보니 <span style="color: #FF8C00 !important">**yookwi**</span>가 풀이를 대부분 완성했다고 합니다.
 
 **J (01:50) +2**
 
