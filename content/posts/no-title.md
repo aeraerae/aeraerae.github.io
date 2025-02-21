@@ -1,7 +1,7 @@
 +++
 title = '무제'
 date = 2025-02-21T07:17:52+09:00
-draft = false
+draft = true
 +++
 
 {{< youtube qtuX4cHk-vE >}}

@@ -11,16 +11,8 @@
     </image>
     <generator>Hugo -- 0.128.0</generator>
     <language>ko</language>
-    <lastBuildDate>Fri, 21 Feb 2025 07:17:52 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 27 Nov 2024 00:54:24 +0900</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>무제</title>
-      <link>http://localhost:1313/posts/no-title/</link>
-      <pubDate>Fri, 21 Feb 2025 07:17:52 +0900</pubDate>
-      <guid>http://localhost:1313/posts/no-title/</guid>
-      <description>나는 병신이다. 너무 작은 우물에 갇혀 살았다. 최근에는 뇌에 구멍이라도 난 게 아닌가 생각이 들 정도로 멍청한 짓만 하고 있다.
-나는 고등학교 때 제2외국어 대신 정보과학 과목을 선택해서, 학교에서 코딩과 알고리즘을 겉핥기 수준으로 배웠다. 나는 그 당시 백엔드 개발자에 관심이 많았고, JavaScript나 파이썬을 쥐좆만큼 할 줄 알아서 꽤나 좋은 성적을 거뒀다. 나는 코딩에 자신감이 붙어서 대학교도 컴공이 아니면 안 가겠다고 땡깡을 부려, 좋지 않은 가정 형편임에도 불구하고, 지방대 떨어진 성적으로 재수를 했다.</description>
-    </item>
     <item>
       <title>2024 ICPC Seoul Regional 후기</title>
       <link>http://localhost:1313/posts/icpc-2024-seoul/</link>
